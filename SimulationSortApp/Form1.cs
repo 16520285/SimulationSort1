@@ -31,5 +31,19 @@ namespace SimulationSortApp
         {
             Application.Exit();
         }
+
+        private void bunifuFlatButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RandomGenerateButton(object sender, EventArgs e)
+        {
+            RandomGenerate(int.Parse(NumberOfElementTxt.Text));
+        }
+        private void RandomGenerate(int numberofelement)
+        {
+           
+        }
     }
 }
