@@ -73,5 +73,10 @@ namespace SimulationSortApp
             nodeArr[0].Focus();
            // destroyButton.Enabled = true;
         }
+
+        private void bunifuFlatButton2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
