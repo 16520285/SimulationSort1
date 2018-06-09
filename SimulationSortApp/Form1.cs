@@ -12,6 +12,7 @@ namespace SimulationSortApp
 {
     public partial class Form1 : Form
     {
+        private List<ButtonNode> nodeArr = new List<ButtonNode>();
         public Form1()
         {
             InitializeComponent();
@@ -25,13 +26,14 @@ namespace SimulationSortApp
         private void bunifuFlatButton3_Click(object sender, EventArgs e)
         {
 
+            ManualGenerate(int.Parse(NumberOfElementTxt.Text));
         }
 
         private void bunifuFlatButton4_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
+        
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
 
@@ -43,7 +45,33 @@ namespace SimulationSortApp
         }
         private void RandomGenerate(int numberofelement)
         {
-           
+            Random rd = new Random();
+            for (int i = 0; i < numberofelement; i++)
+            {
+                int giaTri = rd.Next(0, 99);
+                ButtonNode temp = new ButtonNode(i, giaTri);
+                this.ViewPanel.Controls.Add(temp);
+                nodeArr.Add(temp);
+                temp.Location = new Point(ViewPanel.Location.X + i * 80, ViewPanel.Location.Y - 40 / 2);
+               // TaoLabelSoThuTuChoMang(i);
+            }
+        }
+        private void ManualGenerate(int numberofelement)
+        {
+            
+            for (int i = 0; i < numberofelement; i++)
+            {
+                int giaTri = 0;
+                ButtonNode temp = new ButtonNode(i, giaTri);
+                temp.Visible = true; 
+                this.ViewPanel.Controls.Add(temp);
+                nodeArr.Add(temp);
+                temp.Location = new Point(ViewPanel.Location.X + i * 80, ViewPanel.Location.Y - 40 / 2);
+                // TaoLabelSoThuTuChoMang(i);
+
+            }
+            nodeArr[0].Focus();
+           // destroyButton.Enabled = true;
         }
     }
 }

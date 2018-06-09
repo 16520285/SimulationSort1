@@ -36,7 +36,7 @@
             this.TaskBar = new System.Windows.Forms.Panel();
             this.bunifuFlatButton4 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.ViewPanel = new System.Windows.Forms.Panel();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.RandomGenerateBtn = new Bunifu.Framework.UI.BunifuFlatButton();
             this.ManualGenerateBtn = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -45,7 +45,7 @@
             this.panel3.SuspendLayout();
             this.TaskBar.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.ViewPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -161,14 +161,14 @@
             this.panel2.Size = new System.Drawing.Size(203, 684);
             this.panel2.TabIndex = 1;
             // 
-            // panel4
+            // ViewPanel
             // 
-            this.panel4.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.panel4.Controls.Add(this.bunifuCustomLabel2);
-            this.panel4.Location = new System.Drawing.Point(206, 150);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(792, 303);
-            this.panel4.TabIndex = 0;
+            this.ViewPanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.ViewPanel.Controls.Add(this.bunifuCustomLabel2);
+            this.ViewPanel.Location = new System.Drawing.Point(206, 150);
+            this.ViewPanel.Name = "ViewPanel";
+            this.ViewPanel.Size = new System.Drawing.Size(792, 303);
+            this.ViewPanel.TabIndex = 0;
             // 
             // bunifuCustomLabel2
             // 
@@ -284,7 +284,7 @@
             this.Controls.Add(this.bunifuCustomLabel1);
             this.Controls.Add(this.ManualGenerateBtn);
             this.Controls.Add(this.RandomGenerateBtn);
-            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.ViewPanel);
             this.Controls.Add(this.TaskBar);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -296,8 +296,8 @@
             this.panel3.ResumeLayout(false);
             this.TaskBar.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
+            this.ViewPanel.ResumeLayout(false);
+            this.ViewPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -311,7 +311,7 @@
         private Bunifu.Framework.UI.BunifuFlatButton StartBtn;
         private System.Windows.Forms.Panel TaskBar;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel ViewPanel;
         private Bunifu.Framework.UI.BunifuFlatButton RandomGenerateBtn;
         private Bunifu.Framework.UI.BunifuFlatButton ManualGenerateBtn;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton4;
