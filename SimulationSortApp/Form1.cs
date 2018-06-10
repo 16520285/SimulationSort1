@@ -81,17 +81,9 @@ namespace SimulationSortApp
             backgroundWorker1.RunWorkerAsync();
         }
 
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
-        {
-            BubbleSort(M);
-        }
+       
 
 
-
-        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-
-        }
 
         private void BubbleSort(int[] M)
         {
@@ -151,37 +143,7 @@ namespace SimulationSortApp
             backgroundWorker1.ReportProgress(0, st);
         }
 
-        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
-            //Cập nhật giao diện thời gian thực xong chuyển đến hàm dowork
-            Status st = e.UserState as Status;
-            if (st == null) return;//không làm gì cả
-            //dừng đã làm rồi 
-            if (st.Type == LoaiDiChuyen.DUNG)//nếu dừng tiến trình thì thay đổi giá trị của 2 nút trong mảng
-            {
-                ButtonNode tam = nodeArr[st.Vt2];
-                nodeArr[st.Vt2] = nodeArr[st.Vt1];
-                nodeArr[st.Vt1] = tam;
-                return;
-            }
-            Button btn1 = nodeArr[st.Vt1];
-            Button btn2 = nodeArr[st.Vt2];
-            if (st.Type == LoaiDiChuyen.DI_LEN_DI_XUONG)
-            {
-                btn1.Top = btn1.Top + 1;//Nút 1 đi lên
-                btn2.Top = btn2.Top - 1;//Nút 2 đi xuống
-            }
-            else if (st.Type == LoaiDiChuyen.QUA_PHAI_QUA_TRAI)
-            {
-                btn1.Left = btn1.Left - 1;//nút 1 qa phải
-                btn2.Left = btn2.Left + 1;//Nút 2 di chuyển qua trái
-            }
-            else if (st.Type == LoaiDiChuyen.DI_XUONG_DI_LEN)
-            {
-                btn1.Top = btn1.Top - 1;//Nút 1 đi xuống
-                btn2.Top = btn2.Top + 1;//Nút 2 đi lên
-            }
-        }
+       
 
         private void PauseBtn_Click(object sender, EventArgs e)
         {
@@ -222,6 +184,49 @@ namespace SimulationSortApp
         private void bunifuFlatButton3_Click_1(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void backgroundWorker1_DoWork_1(object sender, DoWorkEventArgs e)
+        {
+            BubbleSort(M);
+        }
+
+        private void backgroundWorker1_ProgressChanged_1(object sender, ProgressChangedEventArgs e)
+        {
+            //Cập nhật giao diện thời gian thực xong chuyển đến hàm dowork
+            Status st = e.UserState as Status;
+            if (st == null) return;//không làm gì cả
+            //dừng đã làm rồi 
+            if (st.Type == LoaiDiChuyen.DUNG)//nếu dừng tiến trình thì thay đổi giá trị của 2 nút trong mảng
+            {
+                ButtonNode tam = nodeArr[st.Vt2];
+                nodeArr[st.Vt2] = nodeArr[st.Vt1];
+                nodeArr[st.Vt1] = tam;
+                return;
+            }
+            Button btn1 = nodeArr[st.Vt1];
+            Button btn2 = nodeArr[st.Vt2];
+            if (st.Type == LoaiDiChuyen.DI_LEN_DI_XUONG)
+            {
+                btn1.Top = btn1.Top + 1;//Nút 1 đi lên
+                btn2.Top = btn2.Top - 1;//Nút 2 đi xuống
+            }
+            else if (st.Type == LoaiDiChuyen.QUA_PHAI_QUA_TRAI)
+            {
+                btn1.Left = btn1.Left - 1;//nút 1 qa phải
+                btn2.Left = btn2.Left + 1;//Nút 2 di chuyển qua trái
+            }
+            else if (st.Type == LoaiDiChuyen.DI_XUONG_DI_LEN)
+            {
+                btn1.Top = btn1.Top - 1;//Nút 1 đi xuống
+                btn2.Top = btn2.Top + 1;//Nút 2 đi lên
+            }
+
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted_1(object sender, RunWorkerCompletedEventArgs e)
+        {
+
         }
     }
 }
