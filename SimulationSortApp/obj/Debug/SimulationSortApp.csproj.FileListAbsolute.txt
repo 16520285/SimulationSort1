@@ -29,3 +29,14 @@ C:\Users\HuỳnhPhươngDuy\Desktop\SimulationSort\SimulationSortApp\obj\Debug\S
 C:\Users\HuỳnhPhươngDuy\Desktop\SimulationSort\SimulationSortApp\obj\Debug\SimulationSortApp.csproj.CopyComplete
 C:\Users\HuỳnhPhươngDuy\Desktop\SimulationSort\SimulationSortApp\obj\Debug\SimulationSortApp.exe
 C:\Users\HuỳnhPhươngDuy\Desktop\SimulationSort\SimulationSortApp\obj\Debug\SimulationSortApp.pdb
+C:\Users\HuỳnhPhươngDuy\Desktop\SimulationSort\New folder\SimulationSort1\SimulationSortApp\bin\Debug\SimulationSortApp.exe.config
+C:\Users\HuỳnhPhươngDuy\Desktop\SimulationSort\New folder\SimulationSort1\SimulationSortApp\bin\Debug\SimulationSortApp.exe
+C:\Users\HuỳnhPhươngDuy\Desktop\SimulationSort\New folder\SimulationSort1\SimulationSortApp\bin\Debug\SimulationSortApp.pdb
+C:\Users\HuỳnhPhươngDuy\Desktop\SimulationSort\New folder\SimulationSort1\SimulationSortApp\obj\Debug\SimulationSortApp.csprojAssemblyReference.cache
+C:\Users\HuỳnhPhươngDuy\Desktop\SimulationSort\New folder\SimulationSort1\SimulationSortApp\obj\Debug\SimulationSortApp.Form1.resources
+C:\Users\HuỳnhPhươngDuy\Desktop\SimulationSort\New folder\SimulationSort1\SimulationSortApp\obj\Debug\SimulationSortApp.Properties.Resources.resources
+C:\Users\HuỳnhPhươngDuy\Desktop\SimulationSort\New folder\SimulationSort1\SimulationSortApp\obj\Debug\SimulationSortApp.csproj.GenerateResource.cache
+C:\Users\HuỳnhPhươngDuy\Desktop\SimulationSort\New folder\SimulationSort1\SimulationSortApp\obj\Debug\SimulationSortApp.csproj.CoreCompileInputs.cache
+C:\Users\HuỳnhPhươngDuy\Desktop\SimulationSort\New folder\SimulationSort1\SimulationSortApp\obj\Debug\SimulationSortApp.csproj.CopyComplete
+C:\Users\HuỳnhPhươngDuy\Desktop\SimulationSort\New folder\SimulationSort1\SimulationSortApp\obj\Debug\SimulationSortApp.exe
+C:\Users\HuỳnhPhươngDuy\Desktop\SimulationSort\New folder\SimulationSort1\SimulationSortApp\obj\Debug\SimulationSortApp.pdb

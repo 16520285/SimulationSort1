@@ -90,5 +90,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\pause-button %281%29.png" />
+    <None Include="Resource\minus-circular-button.png" />
+    <None Include="Resource\trash-bin.png" />
+    <None Include="Resource\play-and-pause-button.png" />
+    <None Include="Resource\play-button %281%29.png" />
+    <None Include="Resource\play-button.png" />
+    <None Include="Resource\cancel-button.png" />
+    <Content Include="Resource\close-cross.png" />
+    <None Include="Resource\pause-button.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
