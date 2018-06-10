@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -51,6 +52,8 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.ManualGenerateBtn = new Bunifu.Framework.UI.BunifuFlatButton();
             this.RandomGenerateBtn = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel3.SuspendLayout();
             this.TaskBar.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -121,7 +124,7 @@
             this.bunifuFlatButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bunifuFlatButton2.Textcolor = System.Drawing.Color.White;
             this.bunifuFlatButton2.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuFlatButton2.Click += new System.EventHandler(this.bunifuFlatButton2_Click);
+            this.bunifuFlatButton2.Click += new System.EventHandler(this.DeleteArrayBtn_Click);
             // 
             // bunifuFlatButton1
             // 
@@ -221,6 +224,7 @@
             this.PauseBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.PauseBtn.Textcolor = System.Drawing.Color.White;
             this.PauseBtn.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PauseBtn.Click += new System.EventHandler(this.PauseBtn_Click);
             // 
             // StartBtn
             // 
@@ -256,7 +260,7 @@
             this.StartBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.StartBtn.Textcolor = System.Drawing.Color.White;
             this.StartBtn.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StartBtn.Click += new System.EventHandler(this.bunifuFlatButton1_Click);
+            this.StartBtn.Click += new System.EventHandler(this.StartBtn_Click);
             // 
             // TaskBar
             // 
@@ -534,6 +538,8 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton3;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
