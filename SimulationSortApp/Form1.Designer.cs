@@ -385,7 +385,7 @@
             this.bunifuFlatButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bunifuFlatButton1.DisabledColor = System.Drawing.Color.Gray;
             this.bunifuFlatButton1.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton1.Iconimage = global::SimulationSortApp.Properties.Resources.play_and_pause_button;
+            this.bunifuFlatButton1.Iconimage = global::SimulationSortApp.Properties.Resources.play_and_pause_button__1_;
             this.bunifuFlatButton1.Iconimage_right = null;
             this.bunifuFlatButton1.Iconimage_right_Selected = null;
             this.bunifuFlatButton1.Iconimage_Selected = null;
@@ -454,7 +454,7 @@
             this.StartBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.StartBtn.DisabledColor = System.Drawing.Color.Gray;
             this.StartBtn.Iconcolor = System.Drawing.Color.Transparent;
-            this.StartBtn.Iconimage = global::SimulationSortApp.Properties.Resources.play_button;
+            this.StartBtn.Iconimage = global::SimulationSortApp.Properties.Resources.play_button__2_;
             this.StartBtn.Iconimage_right = null;
             this.StartBtn.Iconimage_right_Selected = null;
             this.StartBtn.Iconimage_Selected = null;

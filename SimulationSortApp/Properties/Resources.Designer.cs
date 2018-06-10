@@ -133,6 +133,16 @@ namespace SimulationSortApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap play_and_pause_button__1_ {
+            get {
+                object obj = ResourceManager.GetObject("play-and-pause-button (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap play_button {
             get {
                 object obj = ResourceManager.GetObject("play-button", resourceCulture);
@@ -146,6 +156,16 @@ namespace SimulationSortApp.Properties {
         internal static System.Drawing.Bitmap play_button__1_ {
             get {
                 object obj = ResourceManager.GetObject("play-button (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap play_button__2_ {
+            get {
+                object obj = ResourceManager.GetObject("play-button (2)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
