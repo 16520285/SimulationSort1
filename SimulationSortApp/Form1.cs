@@ -267,6 +267,11 @@ namespace SimulationSortApp
             nodeArr.Clear();
             if (IsPause) { IsPause = false; }
         }
+
+        private void bunifuFlatButton6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
