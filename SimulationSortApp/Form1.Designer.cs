@@ -60,6 +60,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.bunifuFlatButton5 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton6 = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.TaskBar.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -273,12 +274,16 @@
             // TaskBar
             // 
             this.TaskBar.BackColor = System.Drawing.Color.Gray;
+            this.TaskBar.Controls.Add(this.label3);
             this.TaskBar.Controls.Add(this.bunifuFlatButton3);
             this.TaskBar.Controls.Add(this.bunifuFlatButton4);
-            this.TaskBar.Location = new System.Drawing.Point(206, 0);
+            this.TaskBar.Location = new System.Drawing.Point(0, 0);
             this.TaskBar.Name = "TaskBar";
-            this.TaskBar.Size = new System.Drawing.Size(792, 27);
+            this.TaskBar.Size = new System.Drawing.Size(998, 27);
             this.TaskBar.TabIndex = 1;
+            this.TaskBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TaskBar_MouseDown);
+            this.TaskBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TaskBar_MouseMove);
+            this.TaskBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TaskBar_MouseUp);
             // 
             // bunifuFlatButton3
             // 
@@ -303,7 +308,7 @@
             this.bunifuFlatButton3.IconVisible = true;
             this.bunifuFlatButton3.IconZoom = 90D;
             this.bunifuFlatButton3.IsTab = false;
-            this.bunifuFlatButton3.Location = new System.Drawing.Point(715, 0);
+            this.bunifuFlatButton3.Location = new System.Drawing.Point(918, 0);
             this.bunifuFlatButton3.Name = "bunifuFlatButton3";
             this.bunifuFlatButton3.Normalcolor = System.Drawing.Color.Gray;
             this.bunifuFlatButton3.OnHovercolor = System.Drawing.Color.DimGray;
@@ -340,7 +345,7 @@
             this.bunifuFlatButton4.IconVisible = true;
             this.bunifuFlatButton4.IconZoom = 90D;
             this.bunifuFlatButton4.IsTab = false;
-            this.bunifuFlatButton4.Location = new System.Drawing.Point(758, 0);
+            this.bunifuFlatButton4.Location = new System.Drawing.Point(961, 0);
             this.bunifuFlatButton4.Name = "bunifuFlatButton4";
             this.bunifuFlatButton4.Normalcolor = System.Drawing.Color.Gray;
             this.bunifuFlatButton4.OnHovercolor = System.Drawing.Color.DimGray;
@@ -360,9 +365,9 @@
             this.panel2.Controls.Add(this.bunifuFlatButton6);
             this.panel2.Controls.Add(this.bunifuFlatButton5);
             this.panel2.Controls.Add(this.comboBox1);
-            this.panel2.Location = new System.Drawing.Point(3, 0);
+            this.panel2.Location = new System.Drawing.Point(3, 25);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(203, 684);
+            this.panel2.Size = new System.Drawing.Size(203, 659);
             this.panel2.TabIndex = 1;
             // 
             // ViewPanel
@@ -609,6 +614,17 @@
             this.bunifuFlatButton6.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuFlatButton6.Click += new System.EventHandler(this.bunifuFlatButton6_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label3.Font = new System.Drawing.Font("Nirmala UI Semilight", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(35, 2);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(145, 25);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Simulation Sort";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -634,6 +650,7 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.TaskBar.ResumeLayout(false);
+            this.TaskBar.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.ViewPanel.ResumeLayout(false);
             this.ViewPanel.PerformLayout();
@@ -678,6 +695,7 @@
         private System.Windows.Forms.Panel panel7;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton6;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton5;
+        private System.Windows.Forms.Label label3;
     }
 }
 
