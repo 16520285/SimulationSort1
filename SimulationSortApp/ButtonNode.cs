@@ -44,10 +44,10 @@ namespace SimulationSortApp
             nhapTayTexbox.Font = new Font("Consolas", 40 / 2, FontStyle.Bold);
             this.Controls.Add(nhapTayTexbox);
 
-            /*  nhapTayTexbox.KeyPress += new KeyPressEventHandler(nhapTayTexbox_KeyPress);
+              nhapTayTexbox.KeyPress += new KeyPressEventHandler(nhapTayTexbox_KeyPress);
               nhapTayTexbox.KeyDown += new KeyEventHandler(nhapTayTexbox_KeyDown);
               nhapTayTexbox.TextChanged += new EventHandler(nhapTayTexbox_TextChanged);
-              nhapTayTexbox.LostFocus += new EventHandler(nhapTayTexbox_LostFocus);*/
+              nhapTayTexbox.LostFocus += new EventHandler(nhapTayTexbox_LostFocus);
         }
         private void Node_GotFocus(object sender, EventArgs e)
         {
@@ -59,6 +59,52 @@ namespace SimulationSortApp
                 nhapTayTexbox.Text = this.Text;
                 nhapTayTexbox.SelectAll();
                 nhapTayTexbox.Focus();
+            }
+        }
+       
+       // public static Action NodeValueChangedHandler;
+        private void nhapTayTexbox_LostFocus(object sender, EventArgs e)
+        {
+            nhapTayTexbox.Visible = false;
+            this.Text = nhapTayTexbox.Text;
+            this.giaTri = int.Parse(nhapTayTexbox.Text);
+            MessageBox.Show("đã thay đổi giá trị" + this.giaTri);
+         
+          //  NodeValueChangedHandler();
+        }
+
+        private void nhapTayTexbox_TextChanged(object sender, EventArgs e)
+        {
+            if (nhapTayTexbox.Text.Count() == 0)
+            {
+                nhapTayTexbox.Text = "0";
+                nhapTayTexbox.SelectAll();
+                nhapTayTexbox.Focus();
+                this.giaTri=int.Parse(nhapTayTexbox.Text);
+            }
+        }
+
+        private void nhapTayTexbox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                nhapTayTexbox.Visible = false;
+                this.Text = nhapTayTexbox.Text;
+            }
+
+        }
+
+        private void nhapTayTexbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '\b')    // nếu là nút BackSpace thì bỏ qua bước check này --> cho phép nút Backspace hoạt động
+            {
+                e.Handled = !char.IsNumber(e.KeyChar);
+                // Nếu   : Handled == true thì event bị hủy
+                // Nhưng : [isNumber(True) + not] = false --> Handled = false --> cho phép nhập --> nếu là số thì cho phép nhập
+                if (nhapTayTexbox.Text.Count() == 0)
+                {
+                    nhapTayTexbox.Text = "0";
+                }
             }
         }
 

@@ -28,23 +28,20 @@ namespace SimulationSortApp
         private void Form1_Load(object sender, EventArgs e)
         {
             AscRadioButton.Checked = true;
+            RandomGenerateBtn.Enabled = true;
+            ManualGenerateBtn.Enabled = true;
         }
 
         private void bunifuFlatButton3_Click(object sender, EventArgs e)
         {
-
-            ManualGenerate(int.Parse(NumberOfElementTxt.Text));
+                 ManualGenerate(int.Parse(NumberOfElementTxt.Text));
         }
-
-        private void bunifuFlatButton4_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
+               
         private void RandomGenerateButton(object sender, EventArgs e)
         {
             RandomGenerate(int.Parse(NumberOfElementTxt.Text));
         }
+
         private void RandomGenerate(int numberofelement)
         {
             deletebuttonnode();            
@@ -58,81 +55,83 @@ namespace SimulationSortApp
                 this.ViewPanel.Controls.Add(temp);
                 nodeArr.Add(temp);
                 temp.Location = new Point(ViewPanel.Location.X + i * 80, ViewPanel.Location.Y - 40 / 2);
-                // TaoLabelSoThuTuChoMang(i);
                 M[i] = giaTri;
             }
         }
+
         private void ManualGenerate(int numberofelement)
         {
-
+            deletebuttonnode();
+            M = new int[numberofelement];
             for (int i = 0; i < numberofelement; i++)
             {
                 int giaTri = 0;
                 ButtonNode temp = new ButtonNode(i, giaTri);
-                temp.Visible = true;
                 this.ViewPanel.Controls.Add(temp);
                 nodeArr.Add(temp);
                 temp.Location = new Point(ViewPanel.Location.X + i * 80, ViewPanel.Location.Y - 40 / 2);
-                // TaoLabelSoThuTuChoMang(i);
-
+                M[i] = giaTri;
             }
             nodeArr[0].Focus();
-            // destroyButton.Enabled = true;
         }
+        
         private void StartBtn_Click(object sender, EventArgs e)
         {
-
-         
+            if (nodeArr.Count==0) { MessageBox.Show("Please generate array"); return; }
+            for (int i=0;i< int.Parse(NumberOfElementTxt.Text);i++)
+            {
+                M[i] = nodeArr[i].giaTri;
+            }
+            RandomGenerateBtn.Enabled = false;
+            ManualGenerateBtn.Enabled = false;
+            StartBtn.Enabled = false;
             backgroundWorker1.RunWorkerAsync();
-            
-
         }
 
-       
+        private void PauseBtn_Click(object sender, EventArgs e)
+        {
+            Pause();
+        }
 
-
+        private void DeleteArrayBtn_Click(object sender, EventArgs e)
+        {
+            if (backgroundWorker1.IsBusy) { backgroundWorker1.CancelAsync(); }
+            RandomGenerateBtn.Enabled = true;
+            ManualGenerateBtn.Enabled = true;
+            StartBtn.Enabled = true;
+        }
 
         private void BubbleSort(int[] M)
         {
             int i, j;
             int n = M.Length;
-            Status st = new Status();//khởi tạo vị trí st
-            
+            Status st = new Status();
             for (i = 0; i < n; i++)
             {
                 for (j = n - 1; j > i; j--)
                 {
-
                     if (backgroundWorker1.CancellationPending) return;
-                 
                     if ( ((AscRadioButton.Checked==true)&&(M[j] < M[j - 1])) || ((DescRadioButton.Checked == true)&& (M[j] > M[j - 1])) )
                     {
                         int tam = M[j];
                         M[j] = M[j - 1];
                         M[j - 1] = tam;
-                        System.Threading.Thread.Sleep(15);//delay cho người dùng xem nút di chuyển
-                        //Tiếp tục tạo hàm di chuyển nút
-                       
+                        System.Threading.Thread.Sleep(15);
                         DiChuyenBubbleSort(j, j - 1);
                     }
                 }
             }
         }
+
         private void DiChuyenBubbleSort(int vt1, int vt2)
         {
             if (backgroundWorker1.CancellationPending) return;
-
             Status st = new Status();
             st.Vt1 = vt1;
             st.Vt2 = vt2;
             st.Type = LoaiDiChuyen.DI_LEN_DI_XUONG;
             for (int x = 0; x < 100; x++)
-            //Đi lên đi xuống bằng chiều cao HEIGHT khởi tạo bàn đầu là 100
             {
-                //đối số 1 là 0, tức là không quan tâm phần trăm chạy
-                //Các bạn tưởng tượng giống phần loading của game vừa load vào
-                //ở phần mềm mình để 0 là không quan tâm đến nó
-                //đối số 2 là lấy cái ví trí của nút
                 backgroundWorker1.ReportProgress(0, st); //gọi hàm ProgressChanged để cập nhật giao diện
                 pauseStatus.WaitOne(Timeout.Infinite);
                 System.Threading.Thread.Sleep(15);
@@ -156,70 +155,33 @@ namespace SimulationSortApp
             st.Type = LoaiDiChuyen.DUNG;
             backgroundWorker1.ReportProgress(0, st);
         }
-
-       
-
-        private void PauseBtn_Click(object sender, EventArgs e)
-        {
-
-            Pause();
-        }
-
+     
         public void Pause()
         {
             if (IsPause)
             {
                 pauseStatus.Set();     // hàm để resume
                 IsPause = false;
-            //    PauseBtn.Text = "Pause";
+                PauseBtn.Text = "Pause";
                 timer1.Start();
+                bunifuFlatButton2.Enabled = true;
             }
             else
             {
                 pauseStatus.Reset();    // hàm để pause
                 IsPause = true;
-              //  PauseBtn.Text = "Continue";
+                PauseBtn.Text = "Continue";
                 timer1.Stop();
+                StartBtn.Enabled = false;
+                bunifuFlatButton2.Enabled = false;
             }
         }
-        private void DeleteArrayBtn_Click(object sender, EventArgs e)
-        {
-
-            //    pauseStatus.Reset(); timer1.Stop();
-           // backgroundWorker1.RunWorkerAsync(); 
-            
-            
-            //  backgroundWorker1.CancellationPending(true);
-            
-            if (backgroundWorker1.IsBusy) {   backgroundWorker1.CancelAsync(); }
-           
-
-
-        }
-
-        private void bunifuFlatButton3_Click_1(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
+       
         private void backgroundWorker1_DoWork_1(object sender, DoWorkEventArgs e)
         {
-
-           /* if (backgroundWorker1.CancellationPending)
-            {
-                MessageBox.Show("thread diing");
-                e.Cancel = true;
-
-                backgroundWorker1.ReportProgress(0);
-                return;
-            }*/
             BubbleSort(M);
-             
-            
-
         }
        
-
         private void backgroundWorker1_ProgressChanged_1(object sender, ProgressChangedEventArgs e)
         {
             //Cập nhật giao diện thời gian thực xong chuyển đến hàm dowork
@@ -257,8 +219,12 @@ namespace SimulationSortApp
         {
             MessageBox.Show("thread died");
             deletebuttonnode();
-           
+            RandomGenerateBtn.Enabled = true;
+            ManualGenerateBtn.Enabled = true;
+
+
         }
+
         private void deletebuttonnode()
         {
             foreach (Control node in nodeArr)
@@ -273,6 +239,7 @@ namespace SimulationSortApp
         {
 
         }
+        
         Boolean flag;
         int x, y;
 
@@ -295,6 +262,17 @@ namespace SimulationSortApp
                this.SetDesktopLocation(Cursor.Position.X - x, Cursor.Position.Y - y);
             }
         }
+
+        private void bunifuFlatButton4_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void bunifuFlatButton3_Click_1(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
     }
 }
 
