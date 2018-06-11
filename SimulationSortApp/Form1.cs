@@ -19,7 +19,7 @@ namespace SimulationSortApp
         int[] M;
         public static ManualResetEvent pauseStatus = new ManualResetEvent(true);
         public static bool IsPause = false;
-      
+
         public Form1()
         {
             InitializeComponent();
@@ -34,9 +34,9 @@ namespace SimulationSortApp
 
         private void bunifuFlatButton3_Click(object sender, EventArgs e)
         {
-                 ManualGenerate(int.Parse(NumberOfElementTxt.Text));
+            ManualGenerate(int.Parse(NumberOfElementTxt.Text));
         }
-               
+
         private void RandomGenerateButton(object sender, EventArgs e)
         {
             RandomGenerate(int.Parse(NumberOfElementTxt.Text));
@@ -44,7 +44,7 @@ namespace SimulationSortApp
 
         private void RandomGenerate(int numberofelement)
         {
-            deletebuttonnode();            
+            deletebuttonnode();
             Random rd = new Random();
             M = new int[numberofelement];
 
@@ -74,11 +74,11 @@ namespace SimulationSortApp
             }
             nodeArr[0].Focus();
         }
-        
+
         private void StartBtn_Click(object sender, EventArgs e)
         {
-            if (nodeArr.Count==0) { MessageBox.Show("Please generate array"); return; }
-            for (int i=0;i< int.Parse(NumberOfElementTxt.Text);i++)
+            if (nodeArr.Count == 0) { MessageBox.Show("Please generate array"); return; }
+            for (int i = 0; i < int.Parse(NumberOfElementTxt.Text); i++)
             {
                 M[i] = nodeArr[i].giaTri;
             }
@@ -100,30 +100,8 @@ namespace SimulationSortApp
             ManualGenerateBtn.Enabled = true;
             StartBtn.Enabled = true;
         }
-
-        private void BubbleSort(int[] M)
-        {
-            int i, j;
-            int n = M.Length;
-            Status st = new Status();
-            for (i = 0; i < n; i++)
-            {
-                for (j = n - 1; j > i; j--)
-                {
-                    if (backgroundWorker1.CancellationPending) return;
-                    if ( ((AscRadioButton.Checked==true)&&(M[j] < M[j - 1])) || ((DescRadioButton.Checked == true)&& (M[j] > M[j - 1])) )
-                    {
-                        int tam = M[j];
-                        M[j] = M[j - 1];
-                        M[j - 1] = tam;
-                        System.Threading.Thread.Sleep(15);
-                        DiChuyenBubbleSort(j, j - 1);
-                    }
-                }
-            }
-        }
-
-        private void DiChuyenBubbleSort(int vt1, int vt2)
+        #region code sort
+        private void Swap(int vt1, int vt2)
         {
             if (backgroundWorker1.CancellationPending) return;
             Status st = new Status();
@@ -137,7 +115,7 @@ namespace SimulationSortApp
                 System.Threading.Thread.Sleep(15);
             }
             st.Type = LoaiDiChuyen.QUA_PHAI_QUA_TRAI;
-            int WIDTH = Math.Abs(vt1 - vt2) * (40 + 80) - 40;
+            int WIDTH = Math.Abs(vt1 - vt2) * 80;
 
             for (int x = 0; x < WIDTH; x++)
             {
@@ -155,7 +133,269 @@ namespace SimulationSortApp
             st.Type = LoaiDiChuyen.DUNG;
             backgroundWorker1.ReportProgress(0, st);
         }
-     
+        private void SwapInsertion(int vt1, int vt2)
+        {
+            if (backgroundWorker1.CancellationPending) return;
+            Status st = new Status();
+            st.Vt1 = vt1;
+            st.Vt2 = vt2;
+            //st.Type = LoaiDiChuyen.DI_LEN_DI_XUONG;
+            //for (int x = 0; x < 100; x++)
+            //{
+            //    backgroundWorker1.ReportProgress(0, st); //gọi hàm ProgressChanged để cập nhật giao diện
+            //    pauseStatus.WaitOne(Timeout.Infinite);
+            //    System.Threading.Thread.Sleep(15);
+            //}
+            st.Type = LoaiDiChuyen.QUA_PHAI_QUA_TRAI;
+            int WIDTH = Math.Abs(vt1 - vt2) * 80;
+
+            for (int x = 0; x < WIDTH; x++)
+            {
+                backgroundWorker1.ReportProgress(0, st);//gọi hàm ProgressChanged để cập nhật giao diện
+                pauseStatus.WaitOne(Timeout.Infinite);
+                System.Threading.Thread.Sleep(15);
+            }//ok làm tiếp cho nút di chuyển ngược lại đi xuống đi lên để vào 1 hàng
+            //st.Type = LoaiDiChuyen.DI_XUONG_DI_LEN;
+            //for (int x = 0; x < 100; x++)
+            //{
+            //    backgroundWorker1.ReportProgress(0, st);//gọi hàm ProgressChanged để cập nhật giao diện
+            //    pauseStatus.WaitOne(Timeout.Infinite);
+            //    System.Threading.Thread.Sleep(15);
+            //}//làm tiếp trường hợp dừng
+            st.Type = LoaiDiChuyen.DUNG;
+            backgroundWorker1.ReportProgress(0, st);
+        }
+        private void BubbleSort(int[] M)
+        {
+            int i, j;
+            int n = M.Length;
+            Status st = new Status();
+            for (i = 0; i < n; i++)
+            {
+                for (j = n - 1; j > i; j--)
+                {
+                    if (backgroundWorker1.CancellationPending) return;
+                    if (((AscRadioButton.Checked == true) && (M[j] < M[j - 1])) || ((DescRadioButton.Checked == true) && (M[j] > M[j - 1])))
+                    {
+                        int tam = M[j];
+                        M[j] = M[j - 1];
+                        M[j - 1] = tam;
+                        System.Threading.Thread.Sleep(15);
+                        Swap(j, j - 1);
+                    }
+                }
+            }
+        }
+        private void InterchangeSort(int[] M)
+        {
+
+            int i, j;
+            int n = M.Length;
+            Status st = new Status();
+            for (i = 0; i < n - 1; i++)
+                for (j = i + 1; j < n; j++)
+                {
+                    if (backgroundWorker1.CancellationPending) return;
+                    if (((AscRadioButton.Checked == true) && (M[i] > M[j])) || ((DescRadioButton.Checked == true) && (M[i] < M[j])))
+                    {
+                        int tam = M[i];
+                        M[i] = M[j];
+                        M[j] = tam;
+                        System.Threading.Thread.Sleep(15);
+                        Swap(j, i);
+
+                    }
+                }
+        }
+        private void InsertionSort(int[] M)
+        {
+            int n = M.Length;
+            int x, temp;
+            Status st = new Status();
+            for (int i = 1; i < n; i++)
+            {
+                x = i - 1;
+                temp = M[i];
+                if (backgroundWorker1.CancellationPending) return;
+                while ((x >= 0) && (((AscRadioButton.Checked == true) && (M[x] > temp)) || ((DescRadioButton.Checked == true) && (M[x] < temp))))
+                {
+                    M[x + 1] = M[x];
+                    System.Threading.Thread.Sleep(15);
+                    SwapInsertion(x + 1, x);
+                    x--;
+                }
+                M[x + 1] = temp;
+            }
+        }
+        private void SelectionSort(int[] M)
+        {
+            int n = M.Length;
+            Status st = new Status();
+            for (int i = 0; i < n - 1; i++)
+            {
+                int min = i;
+                for (int j = i + 1; j < n; j++)
+                {
+                    if (backgroundWorker1.CancellationPending) return;
+                    if (((AscRadioButton.Checked == true) && (M[min] > M[j])) || ((DescRadioButton.Checked == true) && (M[min] < M[j])))
+                    {
+                        min = j;
+                    }
+                }
+                if (min != i)
+                {
+                    int temp = M[i];
+                    M[i] = M[min];
+                    M[min] = temp;
+                    System.Threading.Thread.Sleep(15);
+                    Swap(min, i);
+                }
+            }
+        }
+        private void BinaryInsertionSort(int[] M)
+        {
+            int n = M.Length;
+            int x, left, right, m;
+            Status st = new Status();
+            for (int i = 1; i < n; i++)
+            {
+                x = M[i];
+                left = 0;
+                right = i - 1;
+                while (left <= right)
+                {
+                    m = (left + right) / 2;
+                    if ((((AscRadioButton.Checked == true) && (x < M[m])) || ((DescRadioButton.Checked == true) && (x > M[m]))))
+                        right = m - 1;
+                    else left = m + 1;
+                }
+
+                for (int j = i - 1; j >= left; j--)
+                {
+                    if (backgroundWorker1.CancellationPending) return;
+                    M[j + 1] = M[j];
+                    System.Threading.Thread.Sleep(15);
+                    SwapInsertion(j + 1, j);
+                }
+                M[left] = x;
+            }
+        }
+        private void ShakerSort(int[] M)
+        {
+            int j, left, right, k;
+            int n = M.Length;
+            left = 0;
+            right = n - 1;
+            k = n - 1;
+            Status st = new Status();
+            while (left < right)
+            {
+                for (j = right; j > left; j--)
+                {
+                    if (backgroundWorker1.CancellationPending) return;
+                    if (((AscRadioButton.Checked == true) && (M[j] < M[j - 1])) || ((DescRadioButton.Checked == true) && (M[j] > M[j - 1])))
+                    {
+                        int temp = M[j];
+                        M[j] = M[j - 1];
+                        M[j - 1] = temp;
+                        System.Threading.Thread.Sleep(15);
+                        Swap(j, j - 1);
+                        k = j;
+                    }
+                }
+                left = k;
+                for (j = left; j < right; j++)
+                {
+                    if (backgroundWorker1.CancellationPending) return;
+                    if (((AscRadioButton.Checked == true) && (M[j + 1] < M[j])) || ((DescRadioButton.Checked == true) && (M[j + 1] > M[j])))
+                    {
+                        int temp = M[j];
+                        M[j] = M[j + 1];
+                        M[j + 1] = temp;
+                        System.Threading.Thread.Sleep(15);
+                        Swap(j + 1, j);
+                        k = j;
+                    }
+                }
+                right = k;
+            }
+        }
+        void HeapSort(int[] M, int N)
+        {
+            CreateHeap(M, N - 1);
+            int r;
+            r = N - 1;
+            if (backgroundWorker1.CancellationPending) return;
+            while (r >= 0)
+            {
+                int temp = M[0];
+                M[0] = M[r];
+                M[r] = temp;
+
+                Swap(r, 0);
+                r--;
+                if (r > 0)
+                    Shift(M, 0, r);
+            }
+        }
+        void CreateHeap(int[] M, int N)
+        {
+            int l;
+            l = N / 2 - 1;
+            while (l >= 0)
+            {
+                Shift(M, l, N - 1);
+                l--;
+            }
+        }
+        void Shift(int[] M, int l, int r)
+        {
+            int i = l;
+            int j = 2 * i + 1;
+            while (j <= r)
+            {
+                if (j < r && M[j] < M[j + 1])
+                    j++;
+                //if (((AscRadioButton.Checked == true) && (M[j] < M[j - 1])) || ((DescRadioButton.Checked == true) && (M[j] > M[j - 1])))
+                if (backgroundWorker1.CancellationPending) return;
+                if (((AscRadioButton.Checked == true) && (M[i] < M[j])) || ((DescRadioButton.Checked == true) && (M[i] > M[j])))
+                {
+                    int temp = M[i];
+                    M[i] = M[j];
+                    M[j] = temp;
+                    Swap(j, i);
+                    i = j;
+                    j = 2 * i + 1;
+                }
+                else return;
+            }
+        }
+        #endregion
+        private void backgroundWorker1_DoWork_1(object sender, DoWorkEventArgs e)
+        {
+            if (listSort.selectedValue == "Bubble Sort") BubbleSort(M);
+            else
+                if (listSort.selectedValue == "Interchange Sort") InterchangeSort(M);
+            else
+                if (listSort.selectedValue == "Insertion Sort") InsertionSort(M);
+            else
+                if (listSort.selectedValue == "Selection Sort") SelectionSort(M);
+            else
+                if (listSort.selectedValue == "Binary Insertion Sort") BinaryInsertionSort(M);
+            else
+                if (listSort.selectedValue == "Shaker Sort") ShakerSort(M);
+                if (listSort.selectedValue == "Shaker Sort") ShakerSort(M);
+            else
+                if (listSort.selectedValue == "Heap Sort") HeapSort(M, M.Length);
+            else
+            {
+                MessageBox.Show("Please Choose Sort !");
+                return;
+            }
+            string str = "";
+            for (int i = 0; i < M.Length; i++) str += M[i].ToString() + " ";
+            MessageBox.Show(str);
+        }
         public void Pause()
         {
             if (IsPause)
@@ -176,12 +416,9 @@ namespace SimulationSortApp
                 bunifuFlatButton2.Enabled = false;
             }
         }
-       
-        private void backgroundWorker1_DoWork_1(object sender, DoWorkEventArgs e)
-        {
-            BubbleSort(M);
-        }
-       
+
+
+
         private void backgroundWorker1_ProgressChanged_1(object sender, ProgressChangedEventArgs e)
         {
             //Cập nhật giao diện thời gian thực xong chuyển đến hàm dowork
@@ -221,7 +458,7 @@ namespace SimulationSortApp
             deletebuttonnode();
             RandomGenerateBtn.Enabled = true;
             ManualGenerateBtn.Enabled = true;
-
+            StartBtn.Enabled = true;
 
         }
 
@@ -234,12 +471,12 @@ namespace SimulationSortApp
             nodeArr.Clear();
             if (IsPause) { IsPause = false; }
         }
-     
+
         private void bunifuFlatButton6_Click(object sender, EventArgs e)
         {
 
         }
-        
+
         Boolean flag;
         int x, y;
 
@@ -257,9 +494,9 @@ namespace SimulationSortApp
 
         private void TaskBar_MouseMove(object sender, MouseEventArgs e)
         {
-            if(flag== true)
+            if (flag == true)
             {
-               this.SetDesktopLocation(Cursor.Position.X - x, Cursor.Position.Y - y);
+                this.SetDesktopLocation(Cursor.Position.X - x, Cursor.Position.Y - y);
             }
         }
 
@@ -267,6 +504,8 @@ namespace SimulationSortApp
         {
             Application.Exit();
         }
+
+
 
         private void bunifuFlatButton3_Click_1(object sender, EventArgs e)
         {
