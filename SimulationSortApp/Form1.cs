@@ -18,6 +18,7 @@ namespace SimulationSortApp
         int[] M;
         public static ManualResetEvent pauseStatus = new ManualResetEvent(true);
         public static bool IsPause = false;
+      
         public Form1()
         {
             InitializeComponent();
@@ -25,7 +26,7 @@ namespace SimulationSortApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            AscRadioButton.Checked = true;
         }
 
         private void bunifuFlatButton3_Click(object sender, EventArgs e)
@@ -45,6 +46,7 @@ namespace SimulationSortApp
         }
         private void RandomGenerate(int numberofelement)
         {
+            deletebuttonnode();            
             Random rd = new Random();
             M = new int[numberofelement];
 
@@ -78,7 +80,11 @@ namespace SimulationSortApp
         }
         private void StartBtn_Click(object sender, EventArgs e)
         {
+
+         
             backgroundWorker1.RunWorkerAsync();
+            
+
         }
 
        
@@ -90,17 +96,22 @@ namespace SimulationSortApp
             int i, j;
             int n = M.Length;
             Status st = new Status();//khởi tạo vị trí st
+            
             for (i = 0; i < n; i++)
             {
                 for (j = n - 1; j > i; j--)
                 {
-                    if (M[j] < M[j - 1])
+
+                    if (backgroundWorker1.CancellationPending) return;
+                 
+                    if ( ((AscRadioButton.Checked==true)&&(M[j] < M[j - 1])) || ((DescRadioButton.Checked == true)&& (M[j] > M[j - 1])) )
                     {
                         int tam = M[j];
                         M[j] = M[j - 1];
                         M[j - 1] = tam;
                         System.Threading.Thread.Sleep(15);//delay cho người dùng xem nút di chuyển
                         //Tiếp tục tạo hàm di chuyển nút
+                       
                         DiChuyenBubbleSort(j, j - 1);
                     }
                 }
@@ -108,6 +119,8 @@ namespace SimulationSortApp
         }
         private void DiChuyenBubbleSort(int vt1, int vt2)
         {
+            if (backgroundWorker1.CancellationPending) return;
+
             Status st = new Status();
             st.Vt1 = vt1;
             st.Vt2 = vt2;
@@ -157,26 +170,28 @@ namespace SimulationSortApp
             {
                 pauseStatus.Set();     // hàm để resume
                 IsPause = false;
-                PauseBtn.Text = "Pause";
+            //    PauseBtn.Text = "Pause";
                 timer1.Start();
             }
             else
             {
                 pauseStatus.Reset();    // hàm để pause
                 IsPause = true;
-                PauseBtn.Text = "Continue";
+              //  PauseBtn.Text = "Continue";
                 timer1.Stop();
             }
         }
         private void DeleteArrayBtn_Click(object sender, EventArgs e)
         {
-            foreach (Control node in nodeArr)
-            {
-                node.Dispose();
-            }
-            nodeArr.Clear();
-            if (IsPause) { IsPause = false; PauseBtn.Text = "Pause"; }
 
+            //    pauseStatus.Reset(); timer1.Stop();
+           // backgroundWorker1.RunWorkerAsync(); 
+            
+            
+            //  backgroundWorker1.CancellationPending(true);
+            
+            if (backgroundWorker1.IsBusy) {   backgroundWorker1.CancelAsync(); }
+           
 
 
         }
@@ -188,8 +203,21 @@ namespace SimulationSortApp
 
         private void backgroundWorker1_DoWork_1(object sender, DoWorkEventArgs e)
         {
+
+           /* if (backgroundWorker1.CancellationPending)
+            {
+                MessageBox.Show("thread diing");
+                e.Cancel = true;
+
+                backgroundWorker1.ReportProgress(0);
+                return;
+            }*/
             BubbleSort(M);
+             
+            
+
         }
+       
 
         private void backgroundWorker1_ProgressChanged_1(object sender, ProgressChangedEventArgs e)
         {
@@ -226,7 +254,18 @@ namespace SimulationSortApp
 
         private void backgroundWorker1_RunWorkerCompleted_1(object sender, RunWorkerCompletedEventArgs e)
         {
-
+            MessageBox.Show("thread died");
+            deletebuttonnode();
+           
+        }
+        private void deletebuttonnode()
+        {
+            foreach (Control node in nodeArr)
+            {
+                node.Dispose();
+            }
+            nodeArr.Clear();
+            if (IsPause) { IsPause = false; }
         }
     }
 }

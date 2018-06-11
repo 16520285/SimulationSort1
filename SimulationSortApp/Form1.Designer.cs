@@ -35,8 +35,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.bunifuFlatButton2 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.DescRadioButton = new System.Windows.Forms.RadioButton();
+            this.AscRadioButton = new System.Windows.Forms.RadioButton();
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.PauseBtn = new Bunifu.Framework.UI.BunifuFlatButton();
             this.StartBtn = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -81,8 +81,8 @@
             this.panel3.BackColor = System.Drawing.Color.Gray;
             this.panel3.Controls.Add(this.bunifuFlatButton2);
             this.panel3.Controls.Add(this.bunifuFlatButton1);
-            this.panel3.Controls.Add(this.radioButton2);
-            this.panel3.Controls.Add(this.radioButton1);
+            this.panel3.Controls.Add(this.DescRadioButton);
+            this.panel3.Controls.Add(this.AscRadioButton);
             this.panel3.Controls.Add(this.bunifuCustomLabel3);
             this.panel3.Controls.Add(this.PauseBtn);
             this.panel3.Controls.Add(this.StartBtn);
@@ -160,27 +160,27 @@
             this.bunifuFlatButton1.Textcolor = System.Drawing.Color.White;
             this.bunifuFlatButton1.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
-            // radioButton2
+            // DescRadioButton
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(59, 33);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(82, 17);
-            this.radioButton2.TabIndex = 3;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Descending";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.DescRadioButton.AutoSize = true;
+            this.DescRadioButton.Location = new System.Drawing.Point(59, 33);
+            this.DescRadioButton.Name = "DescRadioButton";
+            this.DescRadioButton.Size = new System.Drawing.Size(82, 17);
+            this.DescRadioButton.TabIndex = 3;
+            this.DescRadioButton.TabStop = true;
+            this.DescRadioButton.Text = "Descending";
+            this.DescRadioButton.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // AscRadioButton
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(59, 7);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(75, 17);
-            this.radioButton1.TabIndex = 2;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Ascending";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.AscRadioButton.AutoSize = true;
+            this.AscRadioButton.Location = new System.Drawing.Point(59, 7);
+            this.AscRadioButton.Name = "AscRadioButton";
+            this.AscRadioButton.Size = new System.Drawing.Size(75, 17);
+            this.AscRadioButton.TabIndex = 2;
+            this.AscRadioButton.TabStop = true;
+            this.AscRadioButton.Text = "Ascending";
+            this.AscRadioButton.UseVisualStyleBackColor = true;
             // 
             // bunifuCustomLabel3
             // 
@@ -539,15 +539,15 @@
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton2;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton DescRadioButton;
+        private System.Windows.Forms.RadioButton AscRadioButton;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
         private Bunifu.Framework.UI.BunifuFlatButton PauseBtn;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton3;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Timer timer1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 
