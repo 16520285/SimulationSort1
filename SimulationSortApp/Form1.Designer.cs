@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.bunifuFlatButton2 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -45,6 +44,7 @@
             this.bunifuFlatButton3 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton4 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.listSort = new Bunifu.Framework.UI.BunifuDropdown();
             this.bunifuFlatButton6 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton5 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.ViewPanel = new System.Windows.Forms.Panel();
@@ -61,6 +61,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.saveQuaTrinh = new System.Windows.Forms.RichTextBox();
             this.panel3.SuspendLayout();
             this.TaskBar.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -75,15 +76,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(10, 684);
             this.panel1.TabIndex = 0;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(0, 123);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(202, 21);
-            this.comboBox1.TabIndex = 2;
-            this.comboBox1.Text = "Choose Sort Algorithm";
             // 
             // panel3
             // 
@@ -373,13 +365,44 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.panel2.Controls.Add(this.listSort);
             this.panel2.Controls.Add(this.bunifuFlatButton6);
             this.panel2.Controls.Add(this.bunifuFlatButton5);
-            this.panel2.Controls.Add(this.comboBox1);
             this.panel2.Location = new System.Drawing.Point(3, 25);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(203, 659);
             this.panel2.TabIndex = 1;
+            // 
+            // listSort
+            // 
+            this.listSort.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.listSort.BackColor = System.Drawing.Color.Transparent;
+            this.listSort.BorderRadius = 3;
+            this.listSort.DisabledColor = System.Drawing.Color.Gray;
+            this.listSort.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listSort.ForeColor = System.Drawing.Color.Black;
+            this.listSort.Items = new string[] {
+        "--------Choose Sort--------",
+        "Bubble Sort",
+        "Interchange Sort",
+        "Insertion Sort",
+        "Binary Insertion Sort",
+        "Selection Sort",
+        "Shaker Sort",
+        "Heap Sort",
+        "Quick Sort",
+        "Merge Sort",
+        "Shell Sort"};
+            this.listSort.Location = new System.Drawing.Point(0, 99);
+            this.listSort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listSort.Name = "listSort";
+            this.listSort.NomalColor = System.Drawing.Color.White;
+            this.listSort.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(88)))), ((int)(((byte)(173)))));
+            this.listSort.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.listSort.selectedIndex = 0;
+            this.listSort.Size = new System.Drawing.Size(202, 31);
+            this.listSort.TabIndex = 15;
+            this.listSort.Tag = "";
             // 
             // bunifuFlatButton6
             // 
@@ -499,6 +522,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.Control;
+            this.panel5.Controls.Add(this.saveQuaTrinh);
             this.panel5.Controls.Add(this.label1);
             this.panel5.Location = new System.Drawing.Point(207, 459);
             this.panel5.Name = "panel5";
@@ -625,6 +649,14 @@
             this.panel7.Size = new System.Drawing.Size(792, 7);
             this.panel7.TabIndex = 0;
             // 
+            // saveQuaTrinh
+            // 
+            this.saveQuaTrinh.Location = new System.Drawing.Point(0, 20);
+            this.saveQuaTrinh.Name = "saveQuaTrinh";
+            this.saveQuaTrinh.Size = new System.Drawing.Size(406, 200);
+            this.saveQuaTrinh.TabIndex = 1;
+            this.saveQuaTrinh.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -666,7 +698,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Panel panel3;
         private Bunifu.Framework.UI.BunifuFlatButton StartBtn;
         private System.Windows.Forms.Panel TaskBar;
@@ -696,6 +727,8 @@
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton6;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton5;
         private System.Windows.Forms.Label label3;
+        private Bunifu.Framework.UI.BunifuDropdown listSort;
+        private System.Windows.Forms.RichTextBox saveQuaTrinh;
     }
 }
 
