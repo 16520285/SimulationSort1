@@ -61,6 +61,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.saveQuaTrinh = new System.Windows.Forms.RichTextBox();
             this.panel3.SuspendLayout();
             this.TaskBar.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -388,7 +389,10 @@
         "Binary Insertion Sort",
         "Selection Sort",
         "Shaker Sort",
-        "Heap Sort"};
+        "Heap Sort",
+        "Quick Sort",
+        "Merge Sort",
+        "Shell Sort"};
             this.listSort.Location = new System.Drawing.Point(0, 99);
             this.listSort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listSort.Name = "listSort";
@@ -397,7 +401,7 @@
             this.listSort.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.listSort.selectedIndex = 0;
             this.listSort.Size = new System.Drawing.Size(202, 31);
-            this.listSort.TabIndex = 8;
+            this.listSort.TabIndex = 15;
             this.listSort.Tag = "";
             // 
             // bunifuFlatButton6
@@ -518,6 +522,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.Control;
+            this.panel5.Controls.Add(this.saveQuaTrinh);
             this.panel5.Controls.Add(this.label1);
             this.panel5.Location = new System.Drawing.Point(207, 459);
             this.panel5.Name = "panel5";
@@ -644,6 +649,14 @@
             this.panel7.Size = new System.Drawing.Size(792, 7);
             this.panel7.TabIndex = 0;
             // 
+            // saveQuaTrinh
+            // 
+            this.saveQuaTrinh.Location = new System.Drawing.Point(0, 20);
+            this.saveQuaTrinh.Name = "saveQuaTrinh";
+            this.saveQuaTrinh.Size = new System.Drawing.Size(406, 200);
+            this.saveQuaTrinh.TabIndex = 1;
+            this.saveQuaTrinh.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -715,6 +728,7 @@
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton5;
         private System.Windows.Forms.Label label3;
         private Bunifu.Framework.UI.BunifuDropdown listSort;
+        private System.Windows.Forms.RichTextBox saveQuaTrinh;
     }
 }
 
