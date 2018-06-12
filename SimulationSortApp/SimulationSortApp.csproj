@@ -58,6 +58,7 @@
     <Compile Include="ButtonNode.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CodeSort.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -52,6 +52,7 @@
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.NumberOfElementTxt = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.saveQuaTrinh = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.ManualGenerateBtn = new Bunifu.Framework.UI.BunifuFlatButton();
             this.RandomGenerateBtn = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -61,7 +62,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.saveQuaTrinh = new System.Windows.Forms.RichTextBox();
+            this.showCode = new System.Windows.Forms.ListBox();
             this.panel3.SuspendLayout();
             this.TaskBar.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -529,6 +530,14 @@
             this.panel5.Size = new System.Drawing.Size(409, 223);
             this.panel5.TabIndex = 6;
             // 
+            // saveQuaTrinh
+            // 
+            this.saveQuaTrinh.Location = new System.Drawing.Point(0, 20);
+            this.saveQuaTrinh.Name = "saveQuaTrinh";
+            this.saveQuaTrinh.Size = new System.Drawing.Size(406, 200);
+            this.saveQuaTrinh.TabIndex = 1;
+            this.saveQuaTrinh.Text = "";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -618,6 +627,7 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.showCode);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Location = new System.Drawing.Point(620, 459);
             this.panel4.Name = "panel4";
@@ -649,13 +659,13 @@
             this.panel7.Size = new System.Drawing.Size(792, 7);
             this.panel7.TabIndex = 0;
             // 
-            // saveQuaTrinh
+            // showCode
             // 
-            this.saveQuaTrinh.Location = new System.Drawing.Point(0, 20);
-            this.saveQuaTrinh.Name = "saveQuaTrinh";
-            this.saveQuaTrinh.Size = new System.Drawing.Size(406, 200);
-            this.saveQuaTrinh.TabIndex = 1;
-            this.saveQuaTrinh.Text = "";
+            this.showCode.FormattingEnabled = true;
+            this.showCode.Location = new System.Drawing.Point(0, 21);
+            this.showCode.Name = "showCode";
+            this.showCode.Size = new System.Drawing.Size(375, 199);
+            this.showCode.TabIndex = 2;
             // 
             // Form1
             // 
@@ -729,6 +739,7 @@
         private System.Windows.Forms.Label label3;
         private Bunifu.Framework.UI.BunifuDropdown listSort;
         private System.Windows.Forms.RichTextBox saveQuaTrinh;
+        private System.Windows.Forms.ListBox showCode;
     }
 }
 

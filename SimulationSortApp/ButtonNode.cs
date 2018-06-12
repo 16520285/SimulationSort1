@@ -68,7 +68,7 @@ namespace SimulationSortApp
             nhapTayTexbox.Visible = false;
             this.Text = nhapTayTexbox.Text;
             this.giaTri = int.Parse(nhapTayTexbox.Text);
-            MessageBox.Show("đã thay đổi giá trị" + this.giaTri);
+            MessageBox.Show("Đã thay đổi giá trị " + this.giaTri);
          
           //  NodeValueChangedHandler();
         }
