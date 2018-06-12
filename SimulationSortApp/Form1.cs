@@ -168,6 +168,8 @@ namespace SimulationSortApp
         }
         private void ShellSort(int[] M)
         {
+            CodeSort.code = showCode;
+            CodeSort.ShellSort(AscRadioButton.Checked);
             int i, n, gap, temp;
             int j;
             n = M.Length;
@@ -211,6 +213,9 @@ namespace SimulationSortApp
         }
         private void BubbleSort(int[] M)
         {
+            CodeSort.code = showCode;
+            CodeSort.BubbleSort(AscRadioButton.Checked);
+
             int i, j;
             step = 0;
             string str = " Dãy chưa sắp : ";
@@ -243,7 +248,8 @@ namespace SimulationSortApp
 
         private void InterchangeSort(int[] M)
         {
-
+            CodeSort.code = showCode;
+            CodeSort.InterchangeSort(AscRadioButton.Checked);
             int i, j;
             int n = M.Length;
             step = 0;
@@ -272,6 +278,8 @@ namespace SimulationSortApp
         }
         private void InsertionSort(int[] M)
         {
+            CodeSort.code = showCode;
+            CodeSort.InsertionSort(AscRadioButton.Checked);
             int n = M.Length;
             int x, temp;
             Status st = new Status();
@@ -306,6 +314,8 @@ namespace SimulationSortApp
         }
         private void SelectionSort(int[] M)
         {
+            CodeSort.code = showCode;
+            CodeSort.SelectionSort(AscRadioButton.Checked);
             step = 0;
             string str = " Dãy chưa sắp : ", strNew = "", strOld = "";
             for (int u = 0; u < M.Length; u++) strOld += M[u].ToString() + " ";
@@ -346,7 +356,9 @@ namespace SimulationSortApp
         }
         private void BinaryInsertionSort(int[] M)
         {
-             step = 0;
+            CodeSort.code = showCode;
+            CodeSort.BinaryInsertionSort(AscRadioButton.Checked);
+            step = 0;
             string str = " Dãy chưa sắp : ", strNew = "", strOld = "";
             for (int u = 0; u < M.Length; u++) strOld += M[u].ToString() + " ";
             str += strOld;
@@ -388,6 +400,8 @@ namespace SimulationSortApp
         }
         private void ShakerSort(int[] M)
         {
+            CodeSort.code = showCode;
+            CodeSort.ShakerSort(AscRadioButton.Checked);
             step = 0;
             string str = " Dãy chưa sắp : ", strNew = "", strOld = "";
             for (int u = 0; u < M.Length; u++) strOld += M[u].ToString() + " ";
@@ -449,8 +463,11 @@ namespace SimulationSortApp
                 right = k;
             }
         }
+        #region HeapSort
         void HeapSort(int[] M, int N)
         {
+            CodeSort.code = showCode;
+            CodeSort.HeapSort(AscRadioButton.Checked);
             step = 0;
             string str = " Dãy chưa sắp : ";
             for (int u = 0; u < M.Length; u++) str+= M[u].ToString() + " ";
@@ -518,6 +535,8 @@ namespace SimulationSortApp
                 else return;
             }
         }
+        #endregion
+        #region QuickSort
         private void Quick_Sort(int[] M, int left, int right)
         {
             if (left < right)
@@ -573,6 +592,7 @@ namespace SimulationSortApp
                 }
             }
         }
+        #endregion
         #region MergeSort
         void merge(int[] M, int l, int m, int r)
         {
@@ -657,6 +677,7 @@ namespace SimulationSortApp
         #endregion
         private void backgroundWorker1_DoWork_1(object sender, DoWorkEventArgs e)
         {
+
             if (listSort.selectedValue == "Bubble Sort") BubbleSort(M);
             else
                 if (listSort.selectedValue == "Interchange Sort") InterchangeSort(M);
@@ -673,6 +694,8 @@ namespace SimulationSortApp
             else
                 if (listSort.selectedValue == "Quick Sort")
             {
+                CodeSort.code = showCode;
+                CodeSort.QuickSort(AscRadioButton.Checked);
                 step = 0;
                 string str = " Dãy chưa sắp : ";
                 for (int u = 0; u < M.Length; u++) str += M[u].ToString() + " ";
@@ -681,8 +704,17 @@ namespace SimulationSortApp
             }
             else
                 if (listSort.selectedValue == "Shell Sort") ShellSort(M);
-            else 
-                if (listSort.selectedValue == "Merge Sort") mergeSort(M, 0, M.Length);
+            else
+                if (listSort.selectedValue == "Merge Sort")
+                {
+                CodeSort.code = showCode;
+                CodeSort.MergeSort(AscRadioButton.Checked);
+                step = 0;
+                   string str = " Dãy chưa sắp : ";
+                   for (int u = 0; u < M.Length; u++) str += M[u].ToString() + " ";
+                   saveQuaTrinh.Text += str;
+                   mergeSort(M, 0, M.Length);
+                }
             else
             {
                 MessageBox.Show("Please Choose Sort !");
