@@ -54,3 +54,4 @@ C:\Users\Vinh Nguyen\Documents\GitHub\SimulationSort1\SimulationSortApp\obj\Debu
 C:\Users\Vinh Nguyen\Documents\GitHub\SimulationSort1\SimulationSortApp\bin\Debug\Bunifu.UI.WinForms.BunifuDropdown.dll
 C:\Users\Vinh Nguyen\Documents\GitHub\SimulationSort1\SimulationSortApp\bin\Debug\Bunifu.Core.dll
 C:\Users\HuỳnhPhươngDuy\Desktop\SimulationSort\New folder\SimulationSort1\SimulationSortApp\bin\Debug\Bunifu.Core.dll
+C:\Users\HuỳnhPhươngDuy\Desktop\SimulationSort\New folder\SimulationSort1\SimulationSortApp\obj\Debug\SimulationSortApp.AboutForm.resources

@@ -777,7 +777,7 @@ namespace SimulationSortApp
 
         private void backgroundWorker1_RunWorkerCompleted_1(object sender, RunWorkerCompletedEventArgs e)
         {
-            MessageBox.Show("thread died");
+            MessageBox.Show("Thread died");
             deletebuttonnode();
             RandomGenerateBtn.Enabled = true;
             ManualGenerateBtn.Enabled = true;
@@ -797,7 +797,8 @@ namespace SimulationSortApp
 
         private void bunifuFlatButton6_Click(object sender, EventArgs e)
         {
-
+            AboutForm aboutForm = new AboutForm();
+            aboutForm.Show();
         }
 
         Boolean flag;
@@ -825,10 +826,25 @@ namespace SimulationSortApp
 
         private void bunifuFlatButton4_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult result = MessageBox.Show("Do you want to close?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (result == DialogResult.OK)
+                Application.Exit();
         }
 
+        private void listSort_onItemSelected(object sender, EventArgs e)
+        {
+            
+        }
 
+        private void showCode_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TaskBar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
 
         private void bunifuFlatButton3_Click_1(object sender, EventArgs e)
         {
