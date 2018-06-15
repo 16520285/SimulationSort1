@@ -860,6 +860,12 @@ namespace SimulationSortApp
 
         }
 
+        private void bunifuFlatButton5_Click(object sender, EventArgs e)
+        {
+            InstrucForm instrucForm = new InstrucForm();
+            instrucForm.Show();
+        }
+
         private void bunifuFlatButton3_Click_1(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
