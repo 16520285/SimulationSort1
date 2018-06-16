@@ -41,8 +41,6 @@
             this.StartBtn = new Bunifu.Framework.UI.BunifuFlatButton();
             this.TaskBar = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.bunifuFlatButton3 = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.bunifuFlatButton4 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.listSort = new Bunifu.Framework.UI.BunifuDropdown();
             this.bunifuFlatButton6 = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -54,21 +52,27 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.saveQuaTrinh = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.ManualGenerateBtn = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.RandomGenerateBtn = new Bunifu.Framework.UI.BunifuFlatButton();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel4 = new System.Windows.Forms.Panel();
+            this.showCode = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.showCode = new System.Windows.Forms.ListBox();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.ideaSort = new System.Windows.Forms.RichTextBox();
+            this.ManualGenerateBtn = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.RandomGenerateBtn = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.bunifuFlatButton3 = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.bunifuFlatButton4 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panel3.SuspendLayout();
             this.TaskBar.SuspendLayout();
             this.panel2.SuspendLayout();
             this.ViewPanel.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -274,6 +278,7 @@
             this.TaskBar.Name = "TaskBar";
             this.TaskBar.Size = new System.Drawing.Size(998, 27);
             this.TaskBar.TabIndex = 1;
+            this.TaskBar.Paint += new System.Windows.Forms.PaintEventHandler(this.TaskBar_Paint);
             this.TaskBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TaskBar_MouseDown);
             this.TaskBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TaskBar_MouseMove);
             this.TaskBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TaskBar_MouseUp);
@@ -288,6 +293,340 @@
             this.label3.Size = new System.Drawing.Size(145, 25);
             this.label3.TabIndex = 7;
             this.label3.Text = "Simulation Sort";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.panel2.Controls.Add(this.listSort);
+            this.panel2.Controls.Add(this.bunifuFlatButton6);
+            this.panel2.Controls.Add(this.bunifuFlatButton5);
+            this.panel2.Location = new System.Drawing.Point(3, 25);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(203, 659);
+            this.panel2.TabIndex = 1;
+            // 
+            // listSort
+            // 
+            this.listSort.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.listSort.BackColor = System.Drawing.Color.Transparent;
+            this.listSort.BorderRadius = 3;
+            this.listSort.DisabledColor = System.Drawing.Color.Gray;
+            this.listSort.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listSort.ForeColor = System.Drawing.Color.Black;
+            this.listSort.Items = new string[] {
+        "--------Choose Sort--------",
+        "Bubble Sort",
+        "Interchange Sort",
+        "Insertion Sort",
+        "Binary Insertion Sort",
+        "Selection Sort",
+        "Shaker Sort",
+        "Heap Sort",
+        "Quick Sort",
+        "Merge Sort",
+        "Shell Sort"};
+            this.listSort.Location = new System.Drawing.Point(0, 99);
+            this.listSort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listSort.Name = "listSort";
+            this.listSort.NomalColor = System.Drawing.Color.White;
+            this.listSort.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(88)))), ((int)(((byte)(173)))));
+            this.listSort.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.listSort.selectedIndex = 0;
+            this.listSort.Size = new System.Drawing.Size(202, 31);
+            this.listSort.TabIndex = 15;
+            this.listSort.Tag = "";
+            this.listSort.onItemSelected += new System.EventHandler(this.listSort_onItemSelected);
+            // 
+            // bunifuFlatButton6
+            // 
+            this.bunifuFlatButton6.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.bunifuFlatButton6.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.bunifuFlatButton6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.bunifuFlatButton6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuFlatButton6.BorderRadius = 0;
+            this.bunifuFlatButton6.ButtonText = "About";
+            this.bunifuFlatButton6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuFlatButton6.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.bunifuFlatButton6.Iconcolor = System.Drawing.Color.Transparent;
+            this.bunifuFlatButton6.Iconimage = null;
+            this.bunifuFlatButton6.Iconimage_right = null;
+            this.bunifuFlatButton6.Iconimage_right_Selected = null;
+            this.bunifuFlatButton6.Iconimage_Selected = null;
+            this.bunifuFlatButton6.IconMarginLeft = 0;
+            this.bunifuFlatButton6.IconMarginRight = 0;
+            this.bunifuFlatButton6.IconRightVisible = true;
+            this.bunifuFlatButton6.IconRightZoom = 0D;
+            this.bunifuFlatButton6.IconVisible = true;
+            this.bunifuFlatButton6.IconZoom = 90D;
+            this.bunifuFlatButton6.IsTab = false;
+            this.bunifuFlatButton6.Location = new System.Drawing.Point(0, 197);
+            this.bunifuFlatButton6.Name = "bunifuFlatButton6";
+            this.bunifuFlatButton6.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.bunifuFlatButton6.OnHovercolor = System.Drawing.Color.DimGray;
+            this.bunifuFlatButton6.OnHoverTextColor = System.Drawing.Color.White;
+            this.bunifuFlatButton6.selected = false;
+            this.bunifuFlatButton6.Size = new System.Drawing.Size(203, 48);
+            this.bunifuFlatButton6.TabIndex = 6;
+            this.bunifuFlatButton6.Text = "About";
+            this.bunifuFlatButton6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bunifuFlatButton6.Textcolor = System.Drawing.Color.White;
+            this.bunifuFlatButton6.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuFlatButton6.Click += new System.EventHandler(this.bunifuFlatButton6_Click);
+            // 
+            // bunifuFlatButton5
+            // 
+            this.bunifuFlatButton5.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.bunifuFlatButton5.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.bunifuFlatButton5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.bunifuFlatButton5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuFlatButton5.BorderRadius = 0;
+            this.bunifuFlatButton5.ButtonText = "Instruction";
+            this.bunifuFlatButton5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuFlatButton5.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.bunifuFlatButton5.Iconcolor = System.Drawing.Color.Transparent;
+            this.bunifuFlatButton5.Iconimage = null;
+            this.bunifuFlatButton5.Iconimage_right = null;
+            this.bunifuFlatButton5.Iconimage_right_Selected = null;
+            this.bunifuFlatButton5.Iconimage_Selected = null;
+            this.bunifuFlatButton5.IconMarginLeft = 0;
+            this.bunifuFlatButton5.IconMarginRight = 0;
+            this.bunifuFlatButton5.IconRightVisible = true;
+            this.bunifuFlatButton5.IconRightZoom = 0D;
+            this.bunifuFlatButton5.IconVisible = true;
+            this.bunifuFlatButton5.IconZoom = 90D;
+            this.bunifuFlatButton5.IsTab = false;
+            this.bunifuFlatButton5.Location = new System.Drawing.Point(-1, 150);
+            this.bunifuFlatButton5.Name = "bunifuFlatButton5";
+            this.bunifuFlatButton5.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.bunifuFlatButton5.OnHovercolor = System.Drawing.Color.DimGray;
+            this.bunifuFlatButton5.OnHoverTextColor = System.Drawing.Color.White;
+            this.bunifuFlatButton5.selected = false;
+            this.bunifuFlatButton5.Size = new System.Drawing.Size(203, 48);
+            this.bunifuFlatButton5.TabIndex = 5;
+            this.bunifuFlatButton5.Text = "Instruction";
+            this.bunifuFlatButton5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bunifuFlatButton5.Textcolor = System.Drawing.Color.White;
+            this.bunifuFlatButton5.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuFlatButton5.Click += new System.EventHandler(this.bunifuFlatButton5_Click);
+            // 
+            // ViewPanel
+            // 
+            this.ViewPanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.ViewPanel.Controls.Add(this.bunifuCustomLabel2);
+            this.ViewPanel.Location = new System.Drawing.Point(207, 150);
+            this.ViewPanel.Name = "ViewPanel";
+            this.ViewPanel.Size = new System.Drawing.Size(792, 303);
+            this.ViewPanel.TabIndex = 0;
+            // 
+            // bunifuCustomLabel2
+            // 
+            this.bunifuCustomLabel2.AutoSize = true;
+            this.bunifuCustomLabel2.Location = new System.Drawing.Point(6, 6);
+            this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
+            this.bunifuCustomLabel2.Size = new System.Drawing.Size(101, 13);
+            this.bunifuCustomLabel2.TabIndex = 0;
+            this.bunifuCustomLabel2.Text = "Simulation Algorithm";
+            // 
+            // bunifuCustomLabel1
+            // 
+            this.bunifuCustomLabel1.AutoSize = true;
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(212, 43);
+            this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
+            this.bunifuCustomLabel1.Size = new System.Drawing.Size(103, 13);
+            this.bunifuCustomLabel1.TabIndex = 3;
+            this.bunifuCustomLabel1.Text = "Number of Element: ";
+            // 
+            // NumberOfElementTxt
+            // 
+            this.NumberOfElementTxt.BorderColorFocused = System.Drawing.Color.Blue;
+            this.NumberOfElementTxt.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.NumberOfElementTxt.BorderColorMouseHover = System.Drawing.Color.Blue;
+            this.NumberOfElementTxt.BorderThickness = 3;
+            this.NumberOfElementTxt.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.NumberOfElementTxt.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.NumberOfElementTxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.NumberOfElementTxt.isPassword = false;
+            this.NumberOfElementTxt.Location = new System.Drawing.Point(309, 34);
+            this.NumberOfElementTxt.Margin = new System.Windows.Forms.Padding(4);
+            this.NumberOfElementTxt.Name = "NumberOfElementTxt";
+            this.NumberOfElementTxt.Size = new System.Drawing.Size(38, 31);
+            this.NumberOfElementTxt.TabIndex = 4;
+            this.NumberOfElementTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.SystemColors.Control;
+            this.panel5.Controls.Add(this.saveQuaTrinh);
+            this.panel5.Controls.Add(this.label1);
+            this.panel5.Location = new System.Drawing.Point(207, 459);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(225, 226);
+            this.panel5.TabIndex = 6;
+            // 
+            // saveQuaTrinh
+            // 
+            this.saveQuaTrinh.Location = new System.Drawing.Point(0, 31);
+            this.saveQuaTrinh.Name = "saveQuaTrinh";
+            this.saveQuaTrinh.Size = new System.Drawing.Size(225, 188);
+            this.saveQuaTrinh.TabIndex = 1;
+            this.saveQuaTrinh.Text = "";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 4);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(32, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Step:";
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.WorkerReportsProgress = true;
+            this.backgroundWorker1.WorkerSupportsCancellation = true;
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork_1);
+            this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged_1);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted_1);
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.showCode);
+            this.panel4.Controls.Add(this.label2);
+            this.panel4.Location = new System.Drawing.Point(696, 456);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(302, 226);
+            this.panel4.TabIndex = 7;
+            // 
+            // showCode
+            // 
+            this.showCode.FormattingEnabled = true;
+            this.showCode.Location = new System.Drawing.Point(0, 34);
+            this.showCode.Name = "showCode";
+            this.showCode.Size = new System.Drawing.Size(299, 186);
+            this.showCode.TabIndex = 2;
+            this.showCode.SelectedIndexChanged += new System.EventHandler(this.showCode_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(5, 7);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(66, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Code C/C++";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(73)))), ((int)(((byte)(73)))));
+            this.panel6.Location = new System.Drawing.Point(612, 453);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(7, 229);
+            this.panel6.TabIndex = 0;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(73)))), ((int)(((byte)(73)))));
+            this.panel7.Location = new System.Drawing.Point(206, 453);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(792, 7);
+            this.panel7.TabIndex = 0;
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.label5);
+            this.panel9.Controls.Add(this.ideaSort);
+            this.panel9.Location = new System.Drawing.Point(435, 459);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(260, 226);
+            this.panel9.TabIndex = 9;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 4);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(31, 13);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Idea:";
+            // 
+            // ideaSort
+            // 
+            this.ideaSort.Location = new System.Drawing.Point(0, 31);
+            this.ideaSort.Name = "ideaSort";
+            this.ideaSort.Size = new System.Drawing.Size(257, 188);
+            this.ideaSort.TabIndex = 2;
+            this.ideaSort.Text = "";
+            // 
+            // ManualGenerateBtn
+            // 
+            this.ManualGenerateBtn.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.ManualGenerateBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.ManualGenerateBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ManualGenerateBtn.BorderRadius = 0;
+            this.ManualGenerateBtn.ButtonText = "Manual Generate";
+            this.ManualGenerateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ManualGenerateBtn.DisabledColor = System.Drawing.Color.Gray;
+            this.ManualGenerateBtn.Iconcolor = System.Drawing.Color.Transparent;
+            this.ManualGenerateBtn.Iconimage = ((System.Drawing.Image)(resources.GetObject("ManualGenerateBtn.Iconimage")));
+            this.ManualGenerateBtn.Iconimage_right = null;
+            this.ManualGenerateBtn.Iconimage_right_Selected = null;
+            this.ManualGenerateBtn.Iconimage_Selected = null;
+            this.ManualGenerateBtn.IconMarginLeft = 0;
+            this.ManualGenerateBtn.IconMarginRight = 0;
+            this.ManualGenerateBtn.IconRightVisible = true;
+            this.ManualGenerateBtn.IconRightZoom = 0D;
+            this.ManualGenerateBtn.IconVisible = true;
+            this.ManualGenerateBtn.IconZoom = 90D;
+            this.ManualGenerateBtn.IsTab = false;
+            this.ManualGenerateBtn.Location = new System.Drawing.Point(648, 55);
+            this.ManualGenerateBtn.Name = "ManualGenerateBtn";
+            this.ManualGenerateBtn.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.ManualGenerateBtn.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.ManualGenerateBtn.OnHoverTextColor = System.Drawing.Color.White;
+            this.ManualGenerateBtn.selected = false;
+            this.ManualGenerateBtn.Size = new System.Drawing.Size(159, 30);
+            this.ManualGenerateBtn.TabIndex = 2;
+            this.ManualGenerateBtn.Text = "Manual Generate";
+            this.ManualGenerateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ManualGenerateBtn.Textcolor = System.Drawing.Color.White;
+            this.ManualGenerateBtn.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManualGenerateBtn.Click += new System.EventHandler(this.bunifuFlatButton3_Click);
+            // 
+            // RandomGenerateBtn
+            // 
+            this.RandomGenerateBtn.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.RandomGenerateBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.RandomGenerateBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.RandomGenerateBtn.BorderRadius = 0;
+            this.RandomGenerateBtn.ButtonText = "Random Generate";
+            this.RandomGenerateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RandomGenerateBtn.DisabledColor = System.Drawing.Color.Gray;
+            this.RandomGenerateBtn.Iconcolor = System.Drawing.Color.Transparent;
+            this.RandomGenerateBtn.Iconimage = ((System.Drawing.Image)(resources.GetObject("RandomGenerateBtn.Iconimage")));
+            this.RandomGenerateBtn.Iconimage_right = null;
+            this.RandomGenerateBtn.Iconimage_right_Selected = null;
+            this.RandomGenerateBtn.Iconimage_Selected = null;
+            this.RandomGenerateBtn.IconMarginLeft = 0;
+            this.RandomGenerateBtn.IconMarginRight = 0;
+            this.RandomGenerateBtn.IconRightVisible = true;
+            this.RandomGenerateBtn.IconRightZoom = 0D;
+            this.RandomGenerateBtn.IconVisible = true;
+            this.RandomGenerateBtn.IconZoom = 90D;
+            this.RandomGenerateBtn.IsTab = false;
+            this.RandomGenerateBtn.Location = new System.Drawing.Point(457, 55);
+            this.RandomGenerateBtn.Name = "RandomGenerateBtn";
+            this.RandomGenerateBtn.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.RandomGenerateBtn.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.RandomGenerateBtn.OnHoverTextColor = System.Drawing.Color.White;
+            this.RandomGenerateBtn.selected = false;
+            this.RandomGenerateBtn.Size = new System.Drawing.Size(159, 30);
+            this.RandomGenerateBtn.TabIndex = 1;
+            this.RandomGenerateBtn.Text = "Random Generate";
+            this.RandomGenerateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.RandomGenerateBtn.Textcolor = System.Drawing.Color.White;
+            this.RandomGenerateBtn.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RandomGenerateBtn.Click += new System.EventHandler(this.RandomGenerateButton);
             // 
             // bunifuFlatButton3
             // 
@@ -363,315 +702,12 @@
             this.bunifuFlatButton4.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuFlatButton4.Click += new System.EventHandler(this.bunifuFlatButton4_Click);
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.panel2.Controls.Add(this.listSort);
-            this.panel2.Controls.Add(this.bunifuFlatButton6);
-            this.panel2.Controls.Add(this.bunifuFlatButton5);
-            this.panel2.Location = new System.Drawing.Point(3, 25);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(203, 659);
-            this.panel2.TabIndex = 1;
-            // 
-            // listSort
-            // 
-            this.listSort.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.listSort.BackColor = System.Drawing.Color.Transparent;
-            this.listSort.BorderRadius = 3;
-            this.listSort.DisabledColor = System.Drawing.Color.Gray;
-            this.listSort.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listSort.ForeColor = System.Drawing.Color.Black;
-            this.listSort.Items = new string[] {
-        "--------Choose Sort--------",
-        "Bubble Sort",
-        "Interchange Sort",
-        "Insertion Sort",
-        "Binary Insertion Sort",
-        "Selection Sort",
-        "Shaker Sort",
-        "Heap Sort",
-        "Quick Sort",
-        "Merge Sort",
-        "Shell Sort"};
-            this.listSort.Location = new System.Drawing.Point(0, 99);
-            this.listSort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.listSort.Name = "listSort";
-            this.listSort.NomalColor = System.Drawing.Color.White;
-            this.listSort.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(88)))), ((int)(((byte)(173)))));
-            this.listSort.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.listSort.selectedIndex = 0;
-            this.listSort.Size = new System.Drawing.Size(202, 31);
-            this.listSort.TabIndex = 15;
-            this.listSort.Tag = "";
-            // 
-            // bunifuFlatButton6
-            // 
-            this.bunifuFlatButton6.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.bunifuFlatButton6.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.bunifuFlatButton6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.bunifuFlatButton6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuFlatButton6.BorderRadius = 0;
-            this.bunifuFlatButton6.ButtonText = "About";
-            this.bunifuFlatButton6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuFlatButton6.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.bunifuFlatButton6.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton6.Iconimage = null;
-            this.bunifuFlatButton6.Iconimage_right = null;
-            this.bunifuFlatButton6.Iconimage_right_Selected = null;
-            this.bunifuFlatButton6.Iconimage_Selected = null;
-            this.bunifuFlatButton6.IconMarginLeft = 0;
-            this.bunifuFlatButton6.IconMarginRight = 0;
-            this.bunifuFlatButton6.IconRightVisible = true;
-            this.bunifuFlatButton6.IconRightZoom = 0D;
-            this.bunifuFlatButton6.IconVisible = true;
-            this.bunifuFlatButton6.IconZoom = 90D;
-            this.bunifuFlatButton6.IsTab = false;
-            this.bunifuFlatButton6.Location = new System.Drawing.Point(0, 197);
-            this.bunifuFlatButton6.Name = "bunifuFlatButton6";
-            this.bunifuFlatButton6.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.bunifuFlatButton6.OnHovercolor = System.Drawing.Color.DimGray;
-            this.bunifuFlatButton6.OnHoverTextColor = System.Drawing.Color.White;
-            this.bunifuFlatButton6.selected = false;
-            this.bunifuFlatButton6.Size = new System.Drawing.Size(203, 48);
-            this.bunifuFlatButton6.TabIndex = 6;
-            this.bunifuFlatButton6.Text = "About";
-            this.bunifuFlatButton6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.bunifuFlatButton6.Textcolor = System.Drawing.Color.White;
-            this.bunifuFlatButton6.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuFlatButton6.Click += new System.EventHandler(this.bunifuFlatButton6_Click);
-            // 
-            // bunifuFlatButton5
-            // 
-            this.bunifuFlatButton5.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.bunifuFlatButton5.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.bunifuFlatButton5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.bunifuFlatButton5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuFlatButton5.BorderRadius = 0;
-            this.bunifuFlatButton5.ButtonText = "Instruction";
-            this.bunifuFlatButton5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuFlatButton5.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.bunifuFlatButton5.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton5.Iconimage = null;
-            this.bunifuFlatButton5.Iconimage_right = null;
-            this.bunifuFlatButton5.Iconimage_right_Selected = null;
-            this.bunifuFlatButton5.Iconimage_Selected = null;
-            this.bunifuFlatButton5.IconMarginLeft = 0;
-            this.bunifuFlatButton5.IconMarginRight = 0;
-            this.bunifuFlatButton5.IconRightVisible = true;
-            this.bunifuFlatButton5.IconRightZoom = 0D;
-            this.bunifuFlatButton5.IconVisible = true;
-            this.bunifuFlatButton5.IconZoom = 90D;
-            this.bunifuFlatButton5.IsTab = false;
-            this.bunifuFlatButton5.Location = new System.Drawing.Point(-1, 150);
-            this.bunifuFlatButton5.Name = "bunifuFlatButton5";
-            this.bunifuFlatButton5.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.bunifuFlatButton5.OnHovercolor = System.Drawing.Color.DimGray;
-            this.bunifuFlatButton5.OnHoverTextColor = System.Drawing.Color.White;
-            this.bunifuFlatButton5.selected = false;
-            this.bunifuFlatButton5.Size = new System.Drawing.Size(203, 48);
-            this.bunifuFlatButton5.TabIndex = 5;
-            this.bunifuFlatButton5.Text = "Instruction";
-            this.bunifuFlatButton5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.bunifuFlatButton5.Textcolor = System.Drawing.Color.White;
-            this.bunifuFlatButton5.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            // 
-            // ViewPanel
-            // 
-            this.ViewPanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ViewPanel.Controls.Add(this.bunifuCustomLabel2);
-            this.ViewPanel.Location = new System.Drawing.Point(207, 150);
-            this.ViewPanel.Name = "ViewPanel";
-            this.ViewPanel.Size = new System.Drawing.Size(792, 303);
-            this.ViewPanel.TabIndex = 0;
-            // 
-            // bunifuCustomLabel2
-            // 
-            this.bunifuCustomLabel2.AutoSize = true;
-            this.bunifuCustomLabel2.Location = new System.Drawing.Point(6, 6);
-            this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
-            this.bunifuCustomLabel2.Size = new System.Drawing.Size(101, 13);
-            this.bunifuCustomLabel2.TabIndex = 0;
-            this.bunifuCustomLabel2.Text = "Simulation Algorithm";
-            // 
-            // bunifuCustomLabel1
-            // 
-            this.bunifuCustomLabel1.AutoSize = true;
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(212, 43);
-            this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
-            this.bunifuCustomLabel1.Size = new System.Drawing.Size(103, 13);
-            this.bunifuCustomLabel1.TabIndex = 3;
-            this.bunifuCustomLabel1.Text = "Number of Element: ";
-            // 
-            // NumberOfElementTxt
-            // 
-            this.NumberOfElementTxt.BorderColorFocused = System.Drawing.Color.Blue;
-            this.NumberOfElementTxt.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.NumberOfElementTxt.BorderColorMouseHover = System.Drawing.Color.Blue;
-            this.NumberOfElementTxt.BorderThickness = 3;
-            this.NumberOfElementTxt.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.NumberOfElementTxt.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.NumberOfElementTxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.NumberOfElementTxt.isPassword = false;
-            this.NumberOfElementTxt.Location = new System.Drawing.Point(309, 34);
-            this.NumberOfElementTxt.Margin = new System.Windows.Forms.Padding(4);
-            this.NumberOfElementTxt.Name = "NumberOfElementTxt";
-            this.NumberOfElementTxt.Size = new System.Drawing.Size(38, 31);
-            this.NumberOfElementTxt.TabIndex = 4;
-            this.NumberOfElementTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.SystemColors.Control;
-            this.panel5.Controls.Add(this.saveQuaTrinh);
-            this.panel5.Controls.Add(this.label1);
-            this.panel5.Location = new System.Drawing.Point(207, 459);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(409, 223);
-            this.panel5.TabIndex = 6;
-            // 
-            // saveQuaTrinh
-            // 
-            this.saveQuaTrinh.Location = new System.Drawing.Point(0, 20);
-            this.saveQuaTrinh.Name = "saveQuaTrinh";
-            this.saveQuaTrinh.Size = new System.Drawing.Size(406, 200);
-            this.saveQuaTrinh.TabIndex = 1;
-            this.saveQuaTrinh.Text = "";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 4);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Idea: ";
-            // 
-            // ManualGenerateBtn
-            // 
-            this.ManualGenerateBtn.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.ManualGenerateBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.ManualGenerateBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ManualGenerateBtn.BorderRadius = 0;
-            this.ManualGenerateBtn.ButtonText = "Manual Generate";
-            this.ManualGenerateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ManualGenerateBtn.DisabledColor = System.Drawing.Color.Gray;
-            this.ManualGenerateBtn.Iconcolor = System.Drawing.Color.Transparent;
-            this.ManualGenerateBtn.Iconimage = ((System.Drawing.Image)(resources.GetObject("ManualGenerateBtn.Iconimage")));
-            this.ManualGenerateBtn.Iconimage_right = null;
-            this.ManualGenerateBtn.Iconimage_right_Selected = null;
-            this.ManualGenerateBtn.Iconimage_Selected = null;
-            this.ManualGenerateBtn.IconMarginLeft = 0;
-            this.ManualGenerateBtn.IconMarginRight = 0;
-            this.ManualGenerateBtn.IconRightVisible = true;
-            this.ManualGenerateBtn.IconRightZoom = 0D;
-            this.ManualGenerateBtn.IconVisible = true;
-            this.ManualGenerateBtn.IconZoom = 90D;
-            this.ManualGenerateBtn.IsTab = false;
-            this.ManualGenerateBtn.Location = new System.Drawing.Point(648, 55);
-            this.ManualGenerateBtn.Name = "ManualGenerateBtn";
-            this.ManualGenerateBtn.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.ManualGenerateBtn.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.ManualGenerateBtn.OnHoverTextColor = System.Drawing.Color.White;
-            this.ManualGenerateBtn.selected = false;
-            this.ManualGenerateBtn.Size = new System.Drawing.Size(159, 30);
-            this.ManualGenerateBtn.TabIndex = 2;
-            this.ManualGenerateBtn.Text = "Manual Generate";
-            this.ManualGenerateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ManualGenerateBtn.Textcolor = System.Drawing.Color.White;
-            this.ManualGenerateBtn.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ManualGenerateBtn.Click += new System.EventHandler(this.bunifuFlatButton3_Click);
-            // 
-            // RandomGenerateBtn
-            // 
-            this.RandomGenerateBtn.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.RandomGenerateBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.RandomGenerateBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.RandomGenerateBtn.BorderRadius = 0;
-            this.RandomGenerateBtn.ButtonText = "Random Generate";
-            this.RandomGenerateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RandomGenerateBtn.DisabledColor = System.Drawing.Color.Gray;
-            this.RandomGenerateBtn.Iconcolor = System.Drawing.Color.Transparent;
-            this.RandomGenerateBtn.Iconimage = ((System.Drawing.Image)(resources.GetObject("RandomGenerateBtn.Iconimage")));
-            this.RandomGenerateBtn.Iconimage_right = null;
-            this.RandomGenerateBtn.Iconimage_right_Selected = null;
-            this.RandomGenerateBtn.Iconimage_Selected = null;
-            this.RandomGenerateBtn.IconMarginLeft = 0;
-            this.RandomGenerateBtn.IconMarginRight = 0;
-            this.RandomGenerateBtn.IconRightVisible = true;
-            this.RandomGenerateBtn.IconRightZoom = 0D;
-            this.RandomGenerateBtn.IconVisible = true;
-            this.RandomGenerateBtn.IconZoom = 90D;
-            this.RandomGenerateBtn.IsTab = false;
-            this.RandomGenerateBtn.Location = new System.Drawing.Point(457, 55);
-            this.RandomGenerateBtn.Name = "RandomGenerateBtn";
-            this.RandomGenerateBtn.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.RandomGenerateBtn.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.RandomGenerateBtn.OnHoverTextColor = System.Drawing.Color.White;
-            this.RandomGenerateBtn.selected = false;
-            this.RandomGenerateBtn.Size = new System.Drawing.Size(159, 30);
-            this.RandomGenerateBtn.TabIndex = 1;
-            this.RandomGenerateBtn.Text = "Random Generate";
-            this.RandomGenerateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RandomGenerateBtn.Textcolor = System.Drawing.Color.White;
-            this.RandomGenerateBtn.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RandomGenerateBtn.Click += new System.EventHandler(this.RandomGenerateButton);
-            // 
-            // backgroundWorker1
-            // 
-            this.backgroundWorker1.WorkerReportsProgress = true;
-            this.backgroundWorker1.WorkerSupportsCancellation = true;
-            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork_1);
-            this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged_1);
-            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted_1);
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.showCode);
-            this.panel4.Controls.Add(this.label2);
-            this.panel4.Location = new System.Drawing.Point(620, 459);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(378, 223);
-            this.panel4.TabIndex = 7;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(5, 4);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Code C/C++";
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(73)))), ((int)(((byte)(73)))));
-            this.panel6.Location = new System.Drawing.Point(612, 453);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(7, 229);
-            this.panel6.TabIndex = 0;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(73)))), ((int)(((byte)(73)))));
-            this.panel7.Location = new System.Drawing.Point(206, 453);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(792, 7);
-            this.panel7.TabIndex = 0;
-            // 
-            // showCode
-            // 
-            this.showCode.FormattingEnabled = true;
-            this.showCode.Location = new System.Drawing.Point(0, 21);
-            this.showCode.Name = "showCode";
-            this.showCode.Size = new System.Drawing.Size(375, 199);
-            this.showCode.TabIndex = 2;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(998, 682);
+            this.Controls.Add(this.panel9);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel4);
@@ -700,6 +736,8 @@
             this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -740,6 +778,9 @@
         private Bunifu.Framework.UI.BunifuDropdown listSort;
         private System.Windows.Forms.RichTextBox saveQuaTrinh;
         private System.Windows.Forms.ListBox showCode;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.RichTextBox ideaSort;
     }
 }
 

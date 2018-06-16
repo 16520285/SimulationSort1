@@ -63,6 +63,16 @@ namespace SimulationSortApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap About {
+            get {
+                object obj = ResourceManager.GetObject("About", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cancel_button {
             get {
                 object obj = ResourceManager.GetObject("cancel-button", resourceCulture);
@@ -76,6 +86,16 @@ namespace SimulationSortApp.Properties {
         internal static System.Drawing.Bitmap close_cross {
             get {
                 object obj = ResourceManager.GetObject("close-cross", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Instruction {
+            get {
+                object obj = ResourceManager.GetObject("Instruction", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

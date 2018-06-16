@@ -10,15 +10,17 @@ namespace SimulationSortApp
     class CodeSort
     {
         public static ListBox code;
-        private static string[] Convert(string text)
+        public static RichTextBox idea;
+        private static string[] Convert(string textCode)
         {
-            string[] texts;
-            texts = text.Split('\n');
-            return texts;
+            string[] textCodes;
+            textCodes = textCode.Split('\n');
+            return textCodes;
         }
         public static void BubbleSort(bool asc)
         {
-            string[] text=Convert(
+            string textIdea = @"Xuất phát từ cuối dãy,đổi chỗ các cặp phần tử kế cận để đưa phần tử nhỏ hơn hoặc lớn hơn trong cặp phần tử đó về vị trí đúng đầu dãy hiện hành, sau đó sẽ không xét đến nó ở bước tiếp theo,do vậy ở lần xử lý thứ i sẽ có vị trí đầu dãy là i. Lặp lại xử lý trên cho đến khi không còn cặp phần tử nào để xét";
+            string[] textCode=Convert(
 @"Sắp tăng                
 void BubbleSort(int a[], int N)
 {
@@ -28,8 +30,11 @@ void BubbleSort(int a[], int N)
         if(a[j] < a[j - 1])
             Swap(a[j], a[j - 1]);
 }");
+
+            idea.Clear();
+            idea.Text = textIdea;
             code.Items.Clear();
-            foreach(string item in text)
+            foreach(string item in textCode)
             {
                 code.Items.Add(item);
             }
@@ -41,7 +46,8 @@ void BubbleSort(int a[], int N)
         }
         public static void SelectionSort(bool asc)
         {
-            string[] text = Convert(
+            string textIdea = @"Chọn phần tử nhỏ nhất hoặc lớn nhất trong N phần tử trong dãy hiện hành. Đưa phần tử này về vị trí đầu dãy hiện hành. Xem dãy hiện hành chỉ còn N-1 phần tử của dãy hiện hành ban đầu. Bắt đầu từ vị trí thứ 2. Lặp lại quá trình trên cho dãy hiện hành... đến khi dãy hiện hành chỉ còn 1 phần tử";
+            string[] textCode = Convert(
 @"Sắp tăng:
 void SelecttionSort(int arr[], int N)
 {
@@ -55,8 +61,10 @@ void SelecttionSort(int arr[], int N)
         Swap(a[min], a[i]);   
     } 
 }");
+            idea.Clear();
+            idea.Text = textIdea;
             code.Items.Clear();
-            foreach (string item in text)
+            foreach (string item in textCode)
             {
                 code.Items.Add(item);
             }
@@ -69,7 +77,8 @@ void SelecttionSort(int arr[], int N)
         }
         public static void InsertionSort(bool asc)
         {
-            string[] text = Convert(
+            string textIdea = @"Giả sử có một dãy a(0),a(1),...,a(n-1) trong đó i phần tử đầu tiên a(0),a(1),...,a(i-1) đã có thứ tự. Tìm cách chèn phần tử a(i) vào vị trí thích hợp của đoạn đã được sắp để có dãy mới a(0),a(1),...,a(i) trở nên có thứ tự. Vị trí này chính là vị trí giữa hai phần tử a(k-1) và a(k) thỏa a(k-1)<a(i)<a(k) (1<=k<=i)";
+            string[] textCode = Convert(
 @"Sắp tăng
                   
 void InsertionSort(int a[], int N)
@@ -87,8 +96,10 @@ void InsertionSort(int a[], int N)
         a[pos + 1] = x;
     }
 }");
+            idea.Clear();
+            idea.Text = textIdea;
             code.Items.Clear();
-            foreach (string item in text)
+            foreach (string item in textCode)
             {
                 code.Items.Add(item);
             }
@@ -100,7 +111,8 @@ void InsertionSort(int a[], int N)
         }
         public static void BinaryInsertionSort(bool asc)
         {
-            string[] text = Convert(
+            string textIdea = @"Cải tiến của giải thuật InsertionSort. Giải thuật chèn nhị phân cho phép giảm số lần so sánh, nhưng không làm giảm số lần dời chỗ ";
+            string[] textCode = Convert(
 @"Sắp tăng
 void BinaryInsertionSort(int a[], int N)
 {
@@ -120,8 +132,10 @@ void BinaryInsertionSort(int a[], int N)
       a[left] = x;
     }
 }");
+            idea.Clear();
+            idea.Text = textIdea;
             code.Items.Clear();
-            foreach (string item in text)
+            foreach (string item in textCode)
             {
                 code.Items.Add(item);
             }
@@ -133,7 +147,8 @@ void BinaryInsertionSort(int a[], int N)
         }
         public static void InterchangeSort(bool asc)
         {
-            string[] text = Convert(
+            string textIdea = @"Xuất phát từ đầu dãy,tìm tất cả các cặp nghịch thế chứa phần tử này, triệt tiêu chúng bằng cách đổi phần tử này với phần tử tương ứng trong cặp nghịch thế .Lặp lại xử lý trên với các phần tử tiếp theo";
+            string[] textCode = Convert(
 @"Sắp tăng
 void InterchangeSort( int a[], int N)
 {
@@ -143,8 +158,10 @@ void InterchangeSort( int a[], int N)
             if( a[j] < a[i] )
                 Swap( a[i], a[j]);
 }");
+            idea.Clear();
+            idea.Text = textIdea;
             code.Items.Clear();
-            foreach (string item in text)
+            foreach (string item in textCode)
             {
                 code.Items.Add(item);
             }
@@ -157,7 +174,12 @@ void InterchangeSort( int a[], int N)
         }
         public static void ShakerSort(bool asc)
         {
-          string[] text = Convert(
+            string textIdea =
+@"Trong mỗi lần sắp xếp, duyệt mảng theo 2 lượt từ 2 phía khác nhau:
+-Lượt đi : đẩy phần tử nhỏ(lớn) về đầu mảng.
+-Lượt về : đẩy phần tử lớn(nhỏ) về cuối mảng.
+Ghi nhận lại những đoạn đã sắp xếp nhằm tiết kiệm các phép so sánh ";
+            string[] textCode = Convert(
 @"Sắp tăng
 void ShakerSort(int a[], int N)
 {
@@ -181,8 +203,10 @@ void ShakerSort(int a[], int N)
     right = k;
     }
 }");
+            idea.Clear();
+            idea.Text = textIdea;
             code.Items.Clear();
-            foreach (string item in text)
+            foreach (string item in textCode)
             {
                 code.Items.Add(item);
             }
@@ -197,7 +221,8 @@ void ShakerSort(int a[], int N)
         }
         public static void HeapSort(bool asc)
         {
-            string[] text = Convert(
+            string textIdea = @"Khi tìm phần tử nhỏ nhất(lớn nhất) ở bước i, phương pháp SelectionSort không tận dụng được các thông tin đã có được do các phép so sánh ở bước i. Giải thuật HeapSort khắc phục nhược điểm này bằng cách chọn ra được một cấu trúc dữ liệu cho phép tích lũy các thông tin về sự so sánh giá trị các phần tử trong quá trình sắp xếp";
+            string[] textCode = Convert(
 @"Sắp tăng    
 void HeapSort(int a[], int N)
 {
@@ -242,8 +267,10 @@ void Shift(int a[], int l, int r)
     }
 }
 ");
+            idea.Clear();
+            idea.Text = textIdea;
             code.Items.Clear();
-            foreach (string item in text)
+            foreach (string item in textCode)
             {
                 code.Items.Add(item);
             }
@@ -257,7 +284,13 @@ void Shift(int a[], int l, int r)
         }
         public static void QuickSort(bool asc)
         {
-            string[] text = Convert(
+            string textIdea = @"Sắp xếp dãy a(1),a(2),...,a(n) dựa trên việc phân hoạch dãy ban đầu thành 3 phần :
+-Phần 1 : Gồm các phần tử có giá trị bé hơn x.
+-Phần 2 : Gồm các phần tử có giá trị bằng x.
+-Phần 3 : Gồm các phần tử có giá trị lớn hơn x
+(Với x là giá trị của một phần tử tùy ý trong dãy ban đầu)";
+
+            string[] textCode = Convert(
 
 @"Sắp tăng   
 void QuickSort(int a[], int left, int right)
@@ -283,8 +316,10 @@ void QuickSort(int a[], int left, int right)
         QuickSort(a, i, right);
 }
 ");
+            idea.Clear();
+            idea.Text = textIdea;
             code.Items.Clear();
-            foreach (string item in text)
+            foreach (string item in textCode)
             {
                 code.Items.Add(item);
             }
@@ -298,7 +333,12 @@ void QuickSort(int a[], int left, int right)
         }
         public static void MergeSort(bool asc)
         {
-            string[] text = Convert(
+            string textIdea = @"Sắp xếp dãy a(1),a(2),...,a(n) dựa trên nhận xét sau :
+-Mỗi dãy a(1),a(2),...,a(n) bất kỳ là một tập hợp các dãy con liên tiếp mà mỗi dãy con đều đã có thứ tự. 
+-Dãy đã có thứ tự coi như có 1 dãy con.           
+Hướng tiếp cận : tìm cách làm giảm số dãy con không giảm của dãy ban đầu";
+
+            string[] textCode = Convert(
   @"Sắp tăng
 int b[MAX], c[MAX], nb, nc;
 int Min(int a, int b)
@@ -359,8 +399,10 @@ void MergeSort(int a[], int N)
             Merge(a, nb, nc, k);
         }
 }");
+            idea.Clear();
+            idea.Text = textIdea;
             code.Items.Clear();
-            foreach (string item in text)
+            foreach (string item in textCode)
             {
                 code.Items.Add(item);
             }
@@ -372,7 +414,8 @@ void MergeSort(int a[], int N)
         }
         public static void ShellSort(bool asc)
         {
-            string[] text = Convert(
+            string textIdea = @"Cải tiến phương pháp InsertionSort. Phân hoạch dãy thành các dãy con. Sắp xếp các dãy con theo phương pháp InsertionSort. Dùng phương pháp InsertionSort sắp xếp lại cả dãy. Tìm k bước với các khoảng cách chọn theo công thức h(i) = (h(i-1) - 1)/2 và h(k) = 1, k = lg(n)/lg(2) - 1.";
+            string[] textCode = Convert(
 @"Sắp tăng
 void ShellSort (int a[], int N)
 {
@@ -388,8 +431,10 @@ void ShellSort (int a[], int N)
     }
 }             
  ");
+            idea.Clear();
+            idea.Text = textIdea;
             code.Items.Clear();
-            foreach (string item in text)
+            foreach (string item in textCode)
             {
                 code.Items.Add(item);
             }

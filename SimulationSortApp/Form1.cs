@@ -213,6 +213,7 @@ namespace SimulationSortApp
         }
         private void BubbleSort(int[] M)
         {
+            CodeSort.idea = ideaSort;
             CodeSort.code = showCode;
             CodeSort.BubbleSort(AscRadioButton.Checked);
 
@@ -248,6 +249,7 @@ namespace SimulationSortApp
 
         private void InterchangeSort(int[] M)
         {
+            CodeSort.idea = ideaSort;
             CodeSort.code = showCode;
             CodeSort.InterchangeSort(AscRadioButton.Checked);
             int i, j;
@@ -278,6 +280,7 @@ namespace SimulationSortApp
         }
         private void InsertionSort(int[] M)
         {
+            CodeSort.idea = ideaSort;
             CodeSort.code = showCode;
             CodeSort.InsertionSort(AscRadioButton.Checked);
             int n = M.Length;
@@ -314,6 +317,7 @@ namespace SimulationSortApp
         }
         private void SelectionSort(int[] M)
         {
+            CodeSort.idea = ideaSort;
             CodeSort.code = showCode;
             CodeSort.SelectionSort(AscRadioButton.Checked);
             step = 0;
@@ -356,6 +360,7 @@ namespace SimulationSortApp
         }
         private void BinaryInsertionSort(int[] M)
         {
+            CodeSort.idea = ideaSort;
             CodeSort.code = showCode;
             CodeSort.BinaryInsertionSort(AscRadioButton.Checked);
             step = 0;
@@ -400,6 +405,7 @@ namespace SimulationSortApp
         }
         private void ShakerSort(int[] M)
         {
+            CodeSort.idea = ideaSort;
             CodeSort.code = showCode;
             CodeSort.ShakerSort(AscRadioButton.Checked);
             step = 0;
@@ -466,6 +472,7 @@ namespace SimulationSortApp
         #region HeapSort
         void HeapSort(int[] M, int N)
         {
+            CodeSort.idea = ideaSort;
             CodeSort.code = showCode;
             CodeSort.HeapSort(AscRadioButton.Checked);
             step = 0;
@@ -694,6 +701,7 @@ namespace SimulationSortApp
             else
                 if (listSort.selectedValue == "Quick Sort")
             {
+                CodeSort.idea = ideaSort;
                 CodeSort.code = showCode;
                 CodeSort.QuickSort(AscRadioButton.Checked);
                 step = 0;
@@ -706,15 +714,16 @@ namespace SimulationSortApp
                 if (listSort.selectedValue == "Shell Sort") ShellSort(M);
             else
                 if (listSort.selectedValue == "Merge Sort")
-                {
+            {
+                CodeSort.idea = ideaSort;
                 CodeSort.code = showCode;
                 CodeSort.MergeSort(AscRadioButton.Checked);
                 step = 0;
-                   string str = " Dãy chưa sắp : ";
-                   for (int u = 0; u < M.Length; u++) str += M[u].ToString() + " ";
-                   saveQuaTrinh.Text += str;
-                   mergeSort(M, 0, M.Length);
-                }
+                string str = " Dãy chưa sắp : ";
+                for (int u = 0; u < M.Length; u++) str += M[u].ToString() + " ";
+                saveQuaTrinh.Text += str;
+                mergeSort(M, 0, M.Length);
+            }
             else
             {
                 MessageBox.Show("Please Choose Sort !");
@@ -777,7 +786,7 @@ namespace SimulationSortApp
 
         private void backgroundWorker1_RunWorkerCompleted_1(object sender, RunWorkerCompletedEventArgs e)
         {
-            MessageBox.Show("thread died");
+            MessageBox.Show("Thread died");
             deletebuttonnode();
             RandomGenerateBtn.Enabled = true;
             ManualGenerateBtn.Enabled = true;
@@ -797,7 +806,8 @@ namespace SimulationSortApp
 
         private void bunifuFlatButton6_Click(object sender, EventArgs e)
         {
-
+            AboutForm aboutForm = new AboutForm();
+            aboutForm.Show();
         }
 
         Boolean flag;
@@ -825,10 +835,36 @@ namespace SimulationSortApp
 
         private void bunifuFlatButton4_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult result = MessageBox.Show("Do you want to close?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (result == DialogResult.OK)
+                Application.Exit();
         }
 
+        private void listSort_onItemSelected(object sender, EventArgs e)
+        {
+            
+        }
 
+        private void showCode_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TaskBar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuFlatButton5_Click(object sender, EventArgs e)
+        {
+            InstrucForm instrucForm = new InstrucForm();
+            instrucForm.Show();
+        }
 
         private void bunifuFlatButton3_Click_1(object sender, EventArgs e)
         {
