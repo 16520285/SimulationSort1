@@ -114,6 +114,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resource\logo.jpg" />
     <None Include="Resource\Instruction.jpg" />
     <None Include="Resource\play-and-pause-button %281%29.png" />
     <None Include="Resource\play-button %282%29.png" />
