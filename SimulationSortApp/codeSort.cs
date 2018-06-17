@@ -11,12 +11,15 @@ namespace SimulationSortApp
     {
         public static ListBox code;
         public static RichTextBox idea;
+
         private static string[] Convert(string textCode)
         {
             string[] textCodes;
             textCodes = textCode.Split('\n');
             return textCodes;
         }
+
+        //Hiển thị idea+ code của các thuật toán
         public static void BubbleSort(bool asc)
         {
             string textIdea = @"Xuất phát từ cuối dãy,đổi chỗ các cặp phần tử kế cận để đưa phần tử nhỏ hơn hoặc lớn hơn trong cặp phần tử đó về vị trí đúng đầu dãy hiện hành, sau đó sẽ không xét đến nó ở bước tiếp theo,do vậy ở lần xử lý thứ i sẽ có vị trí đầu dãy là i. Lặp lại xử lý trên cho đến khi không còn cặp phần tử nào để xét";
@@ -44,6 +47,7 @@ void BubbleSort(int a[], int N)
                 code.Items[6] = "       if(a[j] > a[j - 1])";
             }
         }
+
         public static void SelectionSort(bool asc)
         {
             string textIdea = @"Chọn phần tử nhỏ nhất hoặc lớn nhất trong N phần tử trong dãy hiện hành. Đưa phần tử này về vị trí đầu dãy hiện hành. Xem dãy hiện hành chỉ còn N-1 phần tử của dãy hiện hành ban đầu. Bắt đầu từ vị trí thứ 2. Lặp lại quá trình trên cho dãy hiện hành... đến khi dãy hiện hành chỉ còn 1 phần tử";
@@ -75,6 +79,7 @@ void SelecttionSort(int arr[], int N)
                 code.Items[8] = "            if (a[j] > a[min])";
             }
         }
+
         public static void InsertionSort(bool asc)
         {
             string textIdea = @"Giả sử có một dãy a(0),a(1),...,a(n-1) trong đó i phần tử đầu tiên a(0),a(1),...,a(i-1) đã có thứ tự. Tìm cách chèn phần tử a(i) vào vị trí thích hợp của đoạn đã được sắp để có dãy mới a(0),a(1),...,a(i) trở nên có thứ tự. Vị trí này chính là vị trí giữa hai phần tử a(k-1) và a(k) thỏa a(k-1)<a(i)<a(k) (1<=k<=i)";
@@ -109,6 +114,7 @@ void InsertionSort(int a[], int N)
                 code.Items[9] = "        while((pos >= 0) && (x > a[pos]))";
             }
         }
+
         public static void BinaryInsertionSort(bool asc)
         {
             string textIdea = @"Cải tiến của giải thuật InsertionSort. Giải thuật chèn nhị phân cho phép giảm số lần so sánh, nhưng không làm giảm số lần dời chỗ ";
@@ -145,6 +151,7 @@ void BinaryInsertionSort(int a[], int N)
                 code.Items[11] = "         if(x > a[m]) right = m - 1;";
             }
         }
+
         public static void InterchangeSort(bool asc)
         {
             string textIdea = @"Xuất phát từ đầu dãy,tìm tất cả các cặp nghịch thế chứa phần tử này, triệt tiêu chúng bằng cách đổi phần tử này với phần tử tương ứng trong cặp nghịch thế .Lặp lại xử lý trên với các phần tử tiếp theo";
@@ -172,6 +179,7 @@ void InterchangeSort( int a[], int N)
             }
 
         }
+
         public static void ShakerSort(bool asc)
         {
             string textIdea =
@@ -219,6 +227,7 @@ void ShakerSort(int a[], int N)
             }
 
         }
+
         public static void HeapSort(bool asc)
         {
             string textIdea = @"Khi tìm phần tử nhỏ nhất(lớn nhất) ở bước i, phương pháp SelectionSort không tận dụng được các thông tin đã có được do các phép so sánh ở bước i. Giải thuật HeapSort khắc phục nhược điểm này bằng cách chọn ra được một cấu trúc dữ liệu cho phép tích lũy các thông tin về sự so sánh giá trị các phần tử trong quá trình sắp xếp";
@@ -282,6 +291,7 @@ void Shift(int a[], int l, int r)
             }
 
         }
+
         public static void QuickSort(bool asc)
         {
             string textIdea = @"Sắp xếp dãy a(1),a(2),...,a(n) dựa trên việc phân hoạch dãy ban đầu thành 3 phần :
@@ -331,6 +341,7 @@ void QuickSort(int a[], int left, int right)
             }
 
         }
+
         public static void MergeSort(bool asc)
         {
             string textIdea = @"Sắp xếp dãy a(1),a(2),...,a(n) dựa trên nhận xét sau :
@@ -412,6 +423,7 @@ void MergeSort(int a[], int N)
                 code.Items[27] = "        if(c[pc + ic] > b[pb + ib] == false)";
             }
         }
+
         public static void ShellSort(bool asc)
         {
             string textIdea = @"Cải tiến phương pháp InsertionSort. Phân hoạch dãy thành các dãy con. Sắp xếp các dãy con theo phương pháp InsertionSort. Dùng phương pháp InsertionSort sắp xếp lại cả dãy. Tìm k bước với các khoảng cách chọn theo công thức h(i) = (h(i-1) - 1)/2 và h(k) = 1, k = lg(n)/lg(2) - 1.";

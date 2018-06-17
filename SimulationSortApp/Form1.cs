@@ -15,11 +15,14 @@ namespace SimulationSortApp
 {
     public partial class Form1 : Form
     {
-        private List<ButtonNode> nodeArr = new List<ButtonNode>();
-        int[] M;
+        private List<ButtonNode> nodeArr = new List<ButtonNode>(); //mảng chứa các buttonnode
+        int[] M; 
         public static ManualResetEvent pauseStatus = new ManualResetEvent(true);
         public static bool IsPause = false;
         int step;
+        Boolean flag;
+        int x, y;
+
         public Form1()
         {
             InitializeComponent();
@@ -32,13 +35,10 @@ namespace SimulationSortApp
             ManualGenerateBtn.Enabled = true;
         }
 
-        private void bunifuFlatButton3_Click(object sender, EventArgs e)
-        {
-            ManualGenerate(int.Parse(NumberOfElementTxt.Text));
-        }
-
+        #region Khởi tạo mảng
         private void RandomGenerateButton(object sender, EventArgs e)
         {
+            if (int.Parse(NumberOfElementTxt.Text) > 10) NumberOfElementTxt.Text = "10";
             RandomGenerate(int.Parse(NumberOfElementTxt.Text));
         }
 
@@ -54,9 +54,15 @@ namespace SimulationSortApp
                 ButtonNode temp = new ButtonNode(i, giaTri);
                 this.ViewPanel.Controls.Add(temp);
                 nodeArr.Add(temp);
-                temp.Location = new Point(ViewPanel.Location.X + i * 80, ViewPanel.Location.Y - 40 / 2);
+                temp.Location = new Point(ViewPanel.Location.X + i * 80 - 20*int.Parse(NumberOfElementTxt.Text), ViewPanel.Location.Y - 40 / 2);
                 M[i] = giaTri;
             }
+        }
+
+        private void ManualGenerateBtn_Click(object sender, EventArgs e)
+        {
+            if (int.Parse(NumberOfElementTxt.Text) > 10) NumberOfElementTxt.Text = "10";
+            ManualGenerate(int.Parse(NumberOfElementTxt.Text));
         }
 
         private void ManualGenerate(int numberofelement)
@@ -69,12 +75,14 @@ namespace SimulationSortApp
                 ButtonNode temp = new ButtonNode(i, giaTri);
                 this.ViewPanel.Controls.Add(temp);
                 nodeArr.Add(temp);
-                temp.Location = new Point(ViewPanel.Location.X + i * 80, ViewPanel.Location.Y - 40 / 2);
+                temp.Location = new Point(ViewPanel.Location.X + i * 80 - 20 * int.Parse(NumberOfElementTxt.Text), ViewPanel.Location.Y - 40 / 2);
                 M[i] = giaTri;
             }
             nodeArr[0].Focus();
         }
+        #endregion
 
+        #region Bảng điều khiển
         private void StartBtn_Click(object sender, EventArgs e)
         {
             if (nodeArr.Count == 0) { MessageBox.Show("Please generate array"); return; }
@@ -87,11 +95,37 @@ namespace SimulationSortApp
             StartBtn.Enabled = false;
             saveQuaTrinh.Clear();
             backgroundWorker1.RunWorkerAsync();
-        }
 
+            disableTexbox(true); //khi bắt đầu mô phỏng, không cho phép người dùng thay đổi giá trị textbox
+        }
+        public void disableTexbox(bool e) 
+        {
+            for (int i = 0; i < nodeArr.Count; i++) nodeArr[i].nhapTayTexbox.ReadOnly = e; 
+        }
         private void PauseBtn_Click(object sender, EventArgs e)
         {
             Pause();
+        }
+
+        public void Pause()
+        {
+            if (IsPause)
+            {
+                pauseStatus.Set();     // hàm để resume
+                IsPause = false;
+                PauseBtn.Text = "Pause";
+                timer1.Start();
+                bunifuFlatButton2.Enabled = true;
+            }
+            else
+            {
+                pauseStatus.Reset();    // hàm để pause
+                IsPause = true;
+                PauseBtn.Text = "Continue";
+                timer1.Stop();
+                StartBtn.Enabled = false;
+                bunifuFlatButton2.Enabled = false;
+            }
         }
 
         private void DeleteArrayBtn_Click(object sender, EventArgs e)
@@ -101,6 +135,8 @@ namespace SimulationSortApp
             ManualGenerateBtn.Enabled = true;
             StartBtn.Enabled = true;
         }
+        #endregion
+
         #region code sort
         private void Swap(int vt1, int vt2)
         {
@@ -756,7 +792,9 @@ namespace SimulationSortApp
         }
         #endregion
         #endregion
-        private void backgroundWorker1_DoWork_1(object sender, DoWorkEventArgs e)
+
+        #region quản lý tiểu trình
+        private void backgroundWorker1_DoWork_1(object sender, DoWorkEventArgs e) //được thực thi khi gọi hàm RunWorkerSync() 
         {
 
             if (listSort.selectedValue == "Bubble Sort") BubbleSort(M);
@@ -801,28 +839,9 @@ namespace SimulationSortApp
                 return;
             }
         }
-        public void Pause()
-        {
-            if (IsPause)
-            {
-                pauseStatus.Set();     // hàm để resume
-                IsPause = false;
-                PauseBtn.Text = "Pause";
-                timer1.Start();
-                bunifuFlatButton2.Enabled = true;
-            }
-            else
-            {
-                pauseStatus.Reset();    // hàm để pause
-                IsPause = true;
-                PauseBtn.Text = "Continue";
-                timer1.Stop();
-                StartBtn.Enabled = false;
-                bunifuFlatButton2.Enabled = false;
-            }
-        }
         
-        private void backgroundWorker1_ProgressChanged_1(object sender, ProgressChangedEventArgs e)
+        
+        private void backgroundWorker1_ProgressChanged_1(object sender, ProgressChangedEventArgs e) //được thực thi khi gọi hàm ReportProgess()
         {
             //Cập nhật giao diện thời gian thực xong chuyển đến hàm dowork
             Status st = e.UserState as Status;
@@ -855,15 +874,16 @@ namespace SimulationSortApp
 
         }
 
-        private void backgroundWorker1_RunWorkerCompleted_1(object sender, RunWorkerCompletedEventArgs e)
+        private void backgroundWorker1_RunWorkerCompleted_1(object sender, RunWorkerCompletedEventArgs e) //hàm kết thúc tiểu trình, được thực thi sau khi hàm DoWork thực thi xong, hoặc người dùng chọn hủy tiến trình 
         {
-            MessageBox.Show("Thread died");
+            MessageBox.Show("Mô phỏng kết thúc");
             deletebuttonnode();
             RandomGenerateBtn.Enabled = true;
             ManualGenerateBtn.Enabled = true;
             StartBtn.Enabled = true;
 
         }
+    
 
         private void deletebuttonnode()
         {
@@ -874,16 +894,25 @@ namespace SimulationSortApp
             nodeArr.Clear();
             if (IsPause) { IsPause = false; }
         }
+        #endregion
 
-        private void bunifuFlatButton6_Click(object sender, EventArgs e)
+        //Thông tin phần mềm
+        private void AboutBtn_Click(object sender, EventArgs e)
         {
             AboutForm aboutForm = new AboutForm();
             aboutForm.Show();
         }
 
-        Boolean flag;
-        int x, y;
+        //Hướng dẫn sử dụng
+        private void InstructionBtn_Click(object sender, EventArgs e)
+        {
+            InstrucForm instrucForm = new InstrucForm();
+            instrucForm.Show();
+        }
 
+
+
+        #region các sự kiện taskbar
         private void TaskBar_MouseUp(object sender, MouseEventArgs e)
         {
             flag = false;
@@ -904,13 +933,20 @@ namespace SimulationSortApp
             }
         }
 
-        private void bunifuFlatButton4_Click(object sender, EventArgs e)
+        private void ExitBtn_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Do you want to close?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             if (result == DialogResult.OK)
                 Application.Exit();
         }
 
+        private void MinimizeBtn_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+
+        #region bỏ
         private void listSort_onItemSelected(object sender, EventArgs e)
         {
             
@@ -930,17 +966,9 @@ namespace SimulationSortApp
         {
 
         }
+        #endregion
+        #endregion
 
-        private void bunifuFlatButton5_Click(object sender, EventArgs e)
-        {
-            InstrucForm instrucForm = new InstrucForm();
-            instrucForm.Show();
-        }
-
-        private void bunifuFlatButton3_Click_1(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
 
     }
 }

@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Threading;
 using System.Drawing.Drawing2D;
 
+
 namespace SimulationSortApp
 {
     class ButtonNode:Button
@@ -16,10 +17,11 @@ namespace SimulationSortApp
         public int giaTri;
         public int vitriHienTai;
         public TextBox nhapTayTexbox;
+
         public ButtonNode(int vitrihientai, int giatri)
         {
 
-            // Node : property + event
+            // ButtonNode : property + event
 
             this.FlatStyle = FlatStyle.Flat;
             this.BackColor = System.Drawing.Color.White;
@@ -43,17 +45,17 @@ namespace SimulationSortApp
             nhapTayTexbox.Size = new Size(40, 40);
             nhapTayTexbox.Font = new Font("Consolas", 40 / 2, FontStyle.Bold);
             this.Controls.Add(nhapTayTexbox);
-
-              nhapTayTexbox.KeyPress += new KeyPressEventHandler(nhapTayTexbox_KeyPress);
-              nhapTayTexbox.KeyDown += new KeyEventHandler(nhapTayTexbox_KeyDown);
-              nhapTayTexbox.TextChanged += new EventHandler(nhapTayTexbox_TextChanged);
-              nhapTayTexbox.LostFocus += new EventHandler(nhapTayTexbox_LostFocus);
+                      
+            nhapTayTexbox.KeyPress += new KeyPressEventHandler(nhapTayTexbox_KeyPress);
+            nhapTayTexbox.KeyDown += new KeyEventHandler(nhapTayTexbox_KeyDown);
+            nhapTayTexbox.TextChanged += new EventHandler(nhapTayTexbox_TextChanged);
+            nhapTayTexbox.LostFocus += new EventHandler(nhapTayTexbox_LostFocus);
         }
+
         private void Node_GotFocus(object sender, EventArgs e)
         {
             if (nhapTayTexbox.Enabled == true)   // Nếu textbox bị tắt (khi node đang sắp xếp) thì texbox không đc bật lên để sửa
             {
-
                 nhapTayTexbox.BackColor = this.BackColor;
                 nhapTayTexbox.Visible = true;
                 nhapTayTexbox.Text = this.Text;
@@ -62,15 +64,13 @@ namespace SimulationSortApp
             }
         }
        
-       // public static Action NodeValueChangedHandler;
+        //Sau khi kết thúc nhập textbox, ghi nhận giá trị.
         private void nhapTayTexbox_LostFocus(object sender, EventArgs e)
         {
             nhapTayTexbox.Visible = false;
             this.Text = nhapTayTexbox.Text;
             this.giaTri = int.Parse(nhapTayTexbox.Text);
-            MessageBox.Show("Đã thay đổi giá trị " + this.giaTri);
-         
-          //  NodeValueChangedHandler();
+             
         }
 
         private void nhapTayTexbox_TextChanged(object sender, EventArgs e)

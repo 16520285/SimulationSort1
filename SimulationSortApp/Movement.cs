@@ -10,10 +10,10 @@ namespace SimulationSortApp
     {
         public enum LoaiDiChuyen
         {
-            //Nút lệnh 1 tại vt1 đi lên, qua phải, đi xuông
-            //Nút lệnh 2 đi xuống, qua trái, đi lên
-            //tạo hành động cho nút lệnh di chuyển
-            DI_LEN_DI_XUONG, QUA_PHAI_QUA_TRAI, DI_XUONG_DI_LEN, DUNG
+            //Định nghĩa các cách di chuyển
+            DI_LEN_DI_XUONG, //Nút 1 đi lên, nút 2 đi xuống
+            QUA_PHAI_QUA_TRAI, //Nút 1 qua phải, nút 2 qua trái
+            DI_XUONG_DI_LEN, DUNG //Nút 1 đi xuống, nút 2 đi lên
         }
         //vị trí lúc di chuyển
         public class Status
