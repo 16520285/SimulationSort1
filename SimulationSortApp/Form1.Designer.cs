@@ -33,7 +33,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.bunifuFlatButton2 = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.DescRadioButton = new System.Windows.Forms.RadioButton();
             this.AscRadioButton = new System.Windows.Forms.RadioButton();
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -66,6 +65,7 @@
             this.RandomGenerateBtn = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton3 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton4 = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3.SuspendLayout();
             this.TaskBar.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -73,6 +73,7 @@
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -86,7 +87,6 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.Gray;
             this.panel3.Controls.Add(this.bunifuFlatButton2);
-            this.panel3.Controls.Add(this.bunifuFlatButton1);
             this.panel3.Controls.Add(this.DescRadioButton);
             this.panel3.Controls.Add(this.AscRadioButton);
             this.panel3.Controls.Add(this.bunifuCustomLabel3);
@@ -131,40 +131,6 @@
             this.bunifuFlatButton2.Textcolor = System.Drawing.Color.White;
             this.bunifuFlatButton2.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuFlatButton2.Click += new System.EventHandler(this.DeleteArrayBtn_Click);
-            // 
-            // bunifuFlatButton1
-            // 
-            this.bunifuFlatButton1.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.bunifuFlatButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.bunifuFlatButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuFlatButton1.BorderRadius = 0;
-            this.bunifuFlatButton1.ButtonText = "Debug";
-            this.bunifuFlatButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuFlatButton1.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuFlatButton1.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton1.Iconimage = null;
-            this.bunifuFlatButton1.Iconimage_right = null;
-            this.bunifuFlatButton1.Iconimage_right_Selected = null;
-            this.bunifuFlatButton1.Iconimage_Selected = null;
-            this.bunifuFlatButton1.IconMarginLeft = 0;
-            this.bunifuFlatButton1.IconMarginRight = 0;
-            this.bunifuFlatButton1.IconRightVisible = true;
-            this.bunifuFlatButton1.IconRightZoom = 0D;
-            this.bunifuFlatButton1.IconVisible = true;
-            this.bunifuFlatButton1.IconZoom = 90D;
-            this.bunifuFlatButton1.IsTab = false;
-            this.bunifuFlatButton1.Location = new System.Drawing.Point(442, 7);
-            this.bunifuFlatButton1.Name = "bunifuFlatButton1";
-            this.bunifuFlatButton1.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.bunifuFlatButton1.OnHovercolor = System.Drawing.Color.DimGray;
-            this.bunifuFlatButton1.OnHoverTextColor = System.Drawing.Color.White;
-            this.bunifuFlatButton1.selected = false;
-            this.bunifuFlatButton1.Size = new System.Drawing.Size(113, 48);
-            this.bunifuFlatButton1.TabIndex = 4;
-            this.bunifuFlatButton1.Text = "Debug";
-            this.bunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.bunifuFlatButton1.Textcolor = System.Drawing.Color.White;
-            this.bunifuFlatButton1.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // DescRadioButton
             // 
@@ -218,7 +184,7 @@
             this.PauseBtn.IconVisible = true;
             this.PauseBtn.IconZoom = 90D;
             this.PauseBtn.IsTab = false;
-            this.PauseBtn.Location = new System.Drawing.Point(318, 7);
+            this.PauseBtn.Location = new System.Drawing.Point(406, 7);
             this.PauseBtn.Name = "PauseBtn";
             this.PauseBtn.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
             this.PauseBtn.OnHovercolor = System.Drawing.Color.DimGray;
@@ -254,7 +220,7 @@
             this.StartBtn.IconVisible = true;
             this.StartBtn.IconZoom = 90D;
             this.StartBtn.IsTab = false;
-            this.StartBtn.Location = new System.Drawing.Point(185, 7);
+            this.StartBtn.Location = new System.Drawing.Point(215, 7);
             this.StartBtn.Name = "StartBtn";
             this.StartBtn.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
             this.StartBtn.OnHovercolor = System.Drawing.Color.DimGray;
@@ -298,6 +264,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
             this.panel2.Controls.Add(this.listSort);
+            this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.bunifuFlatButton6);
             this.panel2.Controls.Add(this.bunifuFlatButton5);
             this.panel2.Location = new System.Drawing.Point(3, 25);
@@ -325,7 +292,7 @@
         "Quick Sort",
         "Merge Sort",
         "Shell Sort"};
-            this.listSort.Location = new System.Drawing.Point(0, 99);
+            this.listSort.Location = new System.Drawing.Point(1, 112);
             this.listSort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listSort.Name = "listSort";
             this.listSort.NomalColor = System.Drawing.Color.White;
@@ -702,6 +669,16 @@
             this.bunifuFlatButton4.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuFlatButton4.Click += new System.EventHandler(this.bunifuFlatButton4_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::SimulationSortApp.Properties.Resources.logo;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(-3, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(206, 105);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -738,6 +715,7 @@
             this.panel4.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -758,7 +736,6 @@
         private Bunifu.Framework.UI.BunifuMetroTextbox NumberOfElementTxt;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton2;
-        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
         private System.Windows.Forms.RadioButton DescRadioButton;
         private System.Windows.Forms.RadioButton AscRadioButton;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
@@ -781,6 +758,7 @@
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.RichTextBox ideaSort;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

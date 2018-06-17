@@ -211,6 +211,50 @@ namespace SimulationSortApp
 
             }
         }
+        private void MergeSort1(int[] M)
+        {
+        
+            int i, n, gap, temp;
+            int j;
+            n = M.Length;
+            step = 0;
+            string str = " Dãy chưa sắp : ";
+            for (int u = 0; u < M.Length; u++) str += M[u].ToString() + " ";
+            saveQuaTrinh.Text += str;
+            Status st = new Status();
+            for (gap = n / 2; gap > 0; gap = gap / 2)
+            {
+                step++;
+                for (i = 0; i < n; i = i + gap)
+                {
+
+                    if (backgroundWorker1.CancellationPending) return;
+
+                    temp = M[i];
+
+                    for (j = i; j > 0 && M[j - gap] > temp; j = j - gap)
+
+                    {
+
+                        M[j] = M[j - gap];
+                        Swap(j, j - gap);
+                        str = " Bước " + step.ToString() + " : ";
+
+                    }
+
+                    M[j] = temp;
+
+
+
+
+                }
+                for (int u = 0; u < M.Length; u++) str += M[u].ToString() + " ";
+                saveQuaTrinh.Text += "\n" + str;
+
+
+
+            }
+        }
         private void BubbleSort(int[] M)
         {
             CodeSort.idea = ideaSort;
@@ -601,8 +645,11 @@ namespace SimulationSortApp
         }
         #endregion
         #region MergeSort
+
+
         void merge(int[] M, int l, int m, int r)
         {
+           
             int i, j, k;
             int n1 = m - l + 1;
             int n2 = r - m;
@@ -613,9 +660,13 @@ namespace SimulationSortApp
 
             /* Copy data to temp arrays L[] and R[] */
             for (i = 0; i < n1; i++)
-                L[i] = M[l + i];
+            { L[i] = M[l + i];
+             
+            }
             for (j = 0; j < n2; j++)
-                R[j] = M[m + 1 + j];
+            { R[j] = M[m + 1 + j];
+               
+            }
 
             /* Merge the temp arrays back into arr[l..r]*/
             i = 0; // Initial index of first subarray
@@ -626,18 +677,19 @@ namespace SimulationSortApp
                 if (L[i] <= R[j])
                 {
                     M[k] = L[i];
+                    
                     i++;
-                    string str = " Dãy chưa sắp : ";
-                    step++;
-                    Swap(i, k);
-                    str = " Bước " + step.ToString() + " : ";
-                    for (int u = 0; u < M.Length; u++) str += M[u].ToString() + " ";
-                    saveQuaTrinh.Text += "\n" + str;
+                    
+
+
                 }
                 else
                 {
                     M[k] = R[j];
+                    
                     j++;
+                  
+
                 }
                 k++;
             }
@@ -646,25 +698,47 @@ namespace SimulationSortApp
                are any */
             while (i < n1)
             {
-                M[k] = L[i];
-                i++;
-                k++;
-            }
 
+                Swap(k, i);
+                M[k] = L[i];
+               
+                i++;
+              
+                k++;
+               
+            }
+            
             /* Copy the remaining elements of R[], if there
                are any */
             while (j < n2)
             {
+
+
+
+                Swap(k, j);
                 M[k] = R[j];
+
+                
                 j++;
+                
                 k++;
+               
             }
+           
+            string str = "";
+            step++;
+            str = " Bước " + step.ToString() + " : ";
+            for (int u = 0; u < M.Length; u++) str += M[u].ToString() + " ";
+            saveQuaTrinh.Text += "\n" + str;
+
         }
 
         /* l is for left index and r is right index of the
            sub-array of arr to be sorted */
         void mergeSort(int[] M, int l, int r)
         {
+           
+            
             if (l < r)
             {
                 // Same as (l+r)/2, but avoids overflow for
@@ -673,10 +747,10 @@ namespace SimulationSortApp
 
                 // Sort first and second halves
                 mergeSort(M, l, m);
-               
+
                 
                 mergeSort(M, m + 1, r);
-
+               
                 merge(M, l, m, r);
             }
         }
@@ -718,11 +792,8 @@ namespace SimulationSortApp
                 CodeSort.idea = ideaSort;
                 CodeSort.code = showCode;
                 CodeSort.MergeSort(AscRadioButton.Checked);
-                step = 0;
-                string str = " Dãy chưa sắp : ";
-                for (int u = 0; u < M.Length; u++) str += M[u].ToString() + " ";
-                saveQuaTrinh.Text += str;
-                mergeSort(M, 0, M.Length);
+                
+                MergeSort1(M);
             }
             else
             {
